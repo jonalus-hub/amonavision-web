@@ -43,11 +43,8 @@ Then open http://localhost:8000. The microphone needs HTTPS or localhost.
 
 ## Credits
 
-- **Photos:** [StockSnap](https://stocksnap.io), CC0 1.0 (found through
-  [Openverse](https://openverse.org)). The people shown are not AmonaVision users.
-- **Video:** "Family making a video call on smartphone" from
-  [Mixkit](https://mixkit.co/free-stock-video/family-making-a-video-call-on-smartphone-4523/),
-  Mixkit Stock Video Free License.
+- **Photos and video:** drawn for this page with the characters of the AmonaVision
+  illustrations (flat SVG scenes rendered to PNG and to a short video).
 - **Voices** (synthetic, no real person's voice):
   - English: [Kokoro TTS](https://huggingface.co/hexgrad/Kokoro-82M) (Apache-2.0).
   - German: [Piper](https://github.com/OHF-Voice/piper1-gpl) with the

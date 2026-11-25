@@ -40,19 +40,15 @@
   const micHint = $('#micHint');
 
   // ------------------------------------------------------------------ content
+  // Drawn with the characters of the illustrations: the child with the orange curl,
+  // the brown-haired mother in orange and the blond adult in grey.
   const SEED = [
-    { sender: 'Emma', kind: 'photo', file: '01-beach-walk.jpg', voice: '01-beach-walk', time: '08:47' },
-    { sender: 'Sara', kind: 'photo', file: '02-grandma-christmas.jpg', time: '09:12' },
-    { sender: 'Leo', kind: 'photo', file: '03-picnic-dog.jpg', voice: '03-picnic-dog', time: '10:05' },
-    { sender: 'Noah', kind: 'photo', file: '05-blanket-fort-reading.jpg', time: '11:31' },
-    { sender: 'Sara', kind: 'photo', file: '07-bedtime-story.jpg', voice: '07-bedtime-story', time: '12:20' },
-    { sender: 'Leo', kind: 'photo', file: '08-beach-splash.jpg', time: '13:42' },
-    { sender: 'Noah', kind: 'photo', file: '09-baby-daisy.jpg', voice: '09-baby-daisy', time: '15:03' },
-    { sender: 'Dan', kind: 'photo', file: '10-grandpa-walk.jpg', time: '16:18' },
-    { sender: 'Emma', kind: 'photo', file: '11-grandpa-hug.jpg', time: '17:26' },
-    { sender: 'Sara', kind: 'video', file: '13-video-call-hello', time: '18:40' },
+    { sender: 'Emma', kind: 'photo', file: 'beach.png', voice: '01-beach-walk', time: '10:12' },
+    { sender: 'Leo', kind: 'photo', file: 'picnic.png', voice: '03-picnic-dog', time: '13:47' },
+    { sender: 'Sara', kind: 'photo', file: 'bedtime.png', voice: '07-bedtime-story', time: '19:58' },
+    { sender: 'Sara', kind: 'video', file: 'hello', time: '20:05' },
   ];
-  const SAMPLES = ['04-living-room-games.jpg', '06-park-shoulders.jpg', '12-orange-juice.jpg'];
+  const SAMPLES = ['flower.png'];   // the photo the visitor sends in step 1
   let sampleNext = 0;
 
   const sessions = [];   // what the frame can show, in arrival order

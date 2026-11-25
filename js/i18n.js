@@ -55,7 +55,7 @@
       'demo.lead': 'Links der Rahmen, rechts der Familienchat. Alles läuft nur in Ihrem Browser – nichts wird hochgeladen.',
       'step1': 'Schicken Sie ein Foto in die Familiengruppe.',
       'step1.button': 'Beispielfoto senden',
-      'step1.none': 'Alle Beispielfotos gesendet',
+      'step1.none': 'Beispielfoto gesendet',
       'step2': 'Blättern Sie zu einem Foto mit „Abspielen“ und drücken Sie die Taste „Abspielen“.',
       'step3': 'Halten Sie „Antworten“ gedrückt und sprechen Sie – so antwortet Oma.',
       'step4': 'Die Antwort erscheint im Familienchat.',
@@ -86,7 +86,7 @@
       'live.noVoice': 'Zu diesem Foto gibt es keine Sprachnachricht.',
 
       'chat.group': 'Familie',
-      'chat.members': 'Emma, Leo, Sara, Noah, Dan und Sie',
+      'chat.members': 'Emma, Leo, Sara und Sie',
       'chat.label': 'Familiengruppe (Demo)',
       'chat.placeholder': 'Nachricht',
       'chat.attach': 'Foto oder Video senden',
@@ -144,7 +144,7 @@
       'status.code': 'Der Code des Prototyps ist offen: <a href="https://github.com/jonalus-hub/amonavision-frame">github.com/jonalus-hub/amonavision-frame</a>',
 
       'footer.tagline': 'Der Familienchat – auch für Oma.',
-      'footer.credits': 'Demo-Inhalte: Fotos von <a href="https://stocksnap.io">StockSnap</a> (CC0), Video von <a href="https://mixkit.co">Mixkit</a> (Mixkit-Lizenz), synthetische Stimmen (Kokoro TTS, Piper mit Thorsten- und Kerstin-Stimme, CC0). Die Personen sind keine Nutzer von AmonaVision.',
+      'footer.credits': 'Demo-Inhalte: gezeichnete Fotos und Video mit den Figuren der Illustrationen, synthetische Stimmen (Kokoro TTS; Piper mit Thorsten- und Kerstin-Stimme, CC0).',
       'footer.font': 'Schrift: Plus Jakarta Sans (SIL Open Font License).',
       'footer.privacy': 'Diese Seite setzt keine Cookies und lädt nichts von anderen Servern.',
     },
@@ -200,7 +200,7 @@
       'demo.lead': 'The frame on the left, the family chat on the right. It all runs in your browser – nothing is uploaded.',
       'step1': 'Send a photo to the family group.',
       'step1.button': 'Send a sample photo',
-      'step1.none': 'All sample photos sent',
+      'step1.none': 'Sample photo sent',
       'step2': 'Go to a photo that says “Play” and press the “Play” button.',
       'step3': 'Hold “Reply” and speak – that’s how Grandma replies.',
       'step4': 'The reply shows up in the family chat.',
@@ -231,7 +231,7 @@
       'live.noVoice': 'This photo has no voice message.',
 
       'chat.group': 'Family',
-      'chat.members': 'Emma, Leo, Sara, Noah, Dan and you',
+      'chat.members': 'Emma, Leo, Sara and you',
       'chat.label': 'Family group (demo)',
       'chat.placeholder': 'Message',
       'chat.attach': 'Send a photo or video',
@@ -289,7 +289,7 @@
       'status.code': 'The prototype’s code is open: <a href="https://github.com/jonalus-hub/amonavision-frame">github.com/jonalus-hub/amonavision-frame</a>',
 
       'footer.tagline': 'The family chat – for Grandma too.',
-      'footer.credits': 'Demo content: photos from <a href="https://stocksnap.io">StockSnap</a> (CC0), video from <a href="https://mixkit.co">Mixkit</a> (Mixkit License), synthetic voices (Kokoro TTS; Piper with the Thorsten and Kerstin voices, CC0). The people shown are not AmonaVision users.',
+      'footer.credits': 'Demo content: drawn photos and video with the characters of the illustrations, synthetic voices (Kokoro TTS; Piper with the Thorsten and Kerstin voices, CC0).',
       'footer.font': 'Typeface: Plus Jakarta Sans (SIL Open Font License).',
       'footer.privacy': 'This page sets no cookies and loads nothing from other servers.',
     },
