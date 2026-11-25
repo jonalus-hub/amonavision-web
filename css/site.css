@@ -138,11 +138,13 @@ h3 { font-size: 1.25rem; }
 /* Frame, steps and chat in one grid: #demo lands here, so the frame is on screen.
    Phones: frame, steps, chat. Wide screens: frame and chat side by side, steps below. */
 .demo-grid { display: grid; gap: 24px; align-items: start; margin-top: 32px; scroll-margin-top: 80px;
-  grid-template-areas: "frame" "guide" "chat"; }
+  grid-template-columns: minmax(0, 1fr);   /* never wider than the screen (the handset alone wants 400px) */
+  grid-template-areas: "frame" "guide" "net" "chat"; }
 .frame-col { grid-area: frame; }
 .guide { grid-area: guide; }
-.phone { grid-area: chat; }
-@media (min-width: 1000px) { .demo-grid { grid-template-columns: minmax(0, 1fr) 360px; grid-template-areas: "frame chat" "guide guide"; } }
+.net { grid-area: net; }
+.handset { grid-area: chat; }
+@media (min-width: 1000px) { .demo-grid { grid-template-columns: minmax(0, 1fr) 96px 352px; column-gap: 12px; grid-template-areas: "frame net chat" "guide guide guide"; } }
 .frame-col { display: flex; flex-direction: column; align-items: center; }
 .keys-hint { margin: 14px 0 0; text-align: center; }
 @media (hover: none) and (pointer: coarse) { .keys-hint { display: none; } }   /* touch screens have no keyboard */
@@ -178,9 +180,18 @@ h3 { font-size: 1.25rem; }
 .key-labels span:nth-child(4) { left: 72.31%; }
 
 /* Demo: the family chat, as a phone */
-.phone { display: flex; flex-direction: column; height: 620px; background: #161616; border: 1px solid var(--line); border-radius: 32px; overflow: hidden; }
-@media (max-width: 999px) { .phone { height: 560px; width: 100%; max-width: 480px; justify-self: center; } }
-.chat-head { display: flex; align-items: center; gap: 12px; padding: 14px 16px; background: #1e1e1e; border-bottom: 1px solid #262626; }
+/* The family's phone: a handset with a camera island, side buttons and a home bar. */
+.handset { position: relative; height: 660px; padding: 11px; background: #050505; border-radius: 50px;
+  box-shadow: inset 0 0 0 2px #2c2c2c, 0 0 0 1px #3a3a3a, 0 24px 44px rgba(0, 0, 0, 0.5); }
+@media (max-width: 999px) { .handset { height: 600px; width: 100%; max-width: 400px; justify-self: center; } }
+.handset::before { content: ""; position: absolute; z-index: 2; top: 21px; left: 50%; width: 96px; height: 26px; margin-left: -48px; border-radius: 13px; background: #000; }
+.handset::after { content: ""; position: absolute; z-index: 2; bottom: 18px; left: 50%; width: 118px; height: 5px; margin-left: -59px; border-radius: 3px; background: rgba(250, 247, 242, 0.55); pointer-events: none; }
+.side { position: absolute; width: 4px; border-radius: 2px; background: #1c1c1c; box-shadow: 0 0 0 1px #3a3a3a; }
+.side-l1 { left: -4px; top: 118px; height: 46px; }
+.side-l2 { left: -4px; top: 176px; height: 46px; }
+.side-r { right: -4px; top: 150px; height: 72px; }
+.phone { display: flex; flex-direction: column; height: 100%; background: #161616; border-radius: 39px; overflow: hidden; }
+.chat-head { display: flex; align-items: center; gap: 12px; padding: 46px 18px 12px; background: #1e1e1e; border-bottom: 1px solid #262626; }
 .chat-avatar svg { width: 40px; height: 40px; }
 .chat-head b { display: block; font-size: 1rem; }
 .chat-head small { display: block; color: var(--muted-2); font-size: 0.78rem; }
@@ -207,7 +218,7 @@ h3 { font-size: 1.25rem; }
 .reply-bar button { background: none; border: 0; color: var(--muted); cursor: pointer; font-size: 1rem; min-width: 36px; min-height: 36px; }
 .chat-status { margin: 0; padding: 0 14px; min-height: 0; font-size: 0.78rem; color: var(--accent); }
 .chat-status:not(:empty) { padding: 6px 14px 0; }
-.composer { display: flex; align-items: center; gap: 6px; padding: 10px; background: #1e1e1e; }
+.composer { display: flex; align-items: center; gap: 6px; padding: 10px 12px 30px; background: #1e1e1e; }
 .composer input[type="text"] { flex: 1; min-width: 0; min-height: 44px; background: #121212; border: 1px solid var(--line); color: var(--cream); border-radius: 22px; padding: 0 16px; font: 1rem var(--font); }
 .icon-btn { display: inline-grid; place-items: center; flex: none; width: 44px; height: 44px; border-radius: 50%; border: 0; background: var(--panel-2); color: var(--cream); cursor: pointer; touch-action: none; user-select: none; -webkit-user-select: none; }
 .icon-btn svg { width: 22px; height: 22px; }
@@ -216,6 +227,29 @@ h3 { font-size: 1.25rem; }
 .icon-btn.send:hover { background: var(--accent-hover); }
 .icon-btn.recording { background: #c0392b; }
 label.icon-btn:focus-within { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+/* The internet between the frame and the phone: a dashed line (as in the illustrations)
+   with a cloud; each message crosses it as an orange dot. Vertical between the columns on
+   wide screens, horizontal above the phone on narrow ones. */
+.net { position: relative; align-self: stretch; display: grid; place-items: center; min-height: 96px; }
+.net::before { content: ""; position: absolute; left: 0; right: 0; top: 50%; border-top: 3px dashed #8f897f; }
+.net-badge { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 8px 10px; background: var(--bg); color: var(--cream); font-weight: 700; font-size: 0.85rem; }
+.net-badge svg { width: 48px; height: 32px; }
+.packet { position: absolute; z-index: 2; width: 14px; height: 14px; border-radius: 50%; background: var(--accent);
+  box-shadow: 0 0 0 5px rgba(247, 148, 29, 0.28); pointer-events: none; left: 50%; margin-left: -7px; top: -7px; }
+.packet.to-chat { animation: net-down 0.9s ease-in-out forwards; }
+.packet.to-frame { animation: net-up 0.9s ease-in-out forwards; }
+@keyframes net-down { 0% { top: -14px; opacity: 0; } 15%, 85% { opacity: 1; } 100% { top: calc(100% + 0px); opacity: 0; } }
+@keyframes net-up { 0% { top: calc(100% + 0px); opacity: 0; } 15%, 85% { opacity: 1; } 100% { top: -14px; opacity: 0; } }
+@media (min-width: 1000px) {
+  .net::before { left: 50%; right: auto; top: 0; bottom: 0; border-top: 0; border-left: 3px dashed #8f897f; margin-left: -1.5px; }
+  .packet { top: 50%; margin-top: -7px; margin-left: 0; left: 0; }
+  .packet.to-chat { animation-name: net-right; }
+  .packet.to-frame { animation-name: net-left; }
+}
+@keyframes net-right { 0% { left: -20px; opacity: 0; } 15%, 85% { opacity: 1; } 100% { left: calc(100% + 6px); opacity: 0; } }
+@keyframes net-left { 0% { left: calc(100% + 6px); opacity: 0; } 15%, 85% { opacity: 1; } 100% { left: -20px; opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .packet { display: none; } }
 
 /* How it works */
 .flow { display: grid; gap: 10px; align-items: center; margin-top: 40px; }

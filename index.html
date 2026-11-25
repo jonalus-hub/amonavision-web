@@ -171,7 +171,7 @@
   <section class="section" id="probieren">
     <div class="wrap">
       <h2 data-i18n="demo.title">Probieren Sie es aus.</h2>
-      <p class="lead narrow" data-i18n="demo.lead">Links der Rahmen, rechts der Familienchat. Alles läuft nur in Ihrem Browser – nichts wird hochgeladen.</p>
+      <p class="lead narrow" data-i18n="demo.lead">Der Rahmen bei Oma und das Handy der Familie, verbunden über das Internet. Alles läuft nur in Ihrem Browser – nichts wird hochgeladen.</p>
 
       <div class="demo-grid" id="demo">
         <div class="frame-col">
@@ -220,6 +220,15 @@
         </div>
         </div>
 
+        <div class="net" id="net" role="img" aria-label="Rahmen und Familie sind über das Internet verbunden" data-i18n-attr="aria-label:demo.netLabel">
+          <div class="net-badge" aria-hidden="true">
+            <svg viewBox="0 0 48 32"><path d="M13 28 h23 a8 8 0 0 0 0.5 -16 a11 11 0 0 0 -21 -1 a8.5 8.5 0 0 0 -2.5 17 z" fill="#121212" stroke="#FAF7F2" stroke-width="2.6" stroke-linejoin="round"/><circle cx="17" cy="19" r="2.2" fill="#F7941D"/><circle cx="24" cy="19" r="2.2" fill="#F7941D"/><circle cx="31" cy="19" r="2.2" fill="#F7941D"/></svg>
+            <span data-i18n="demo.net">Internet</span>
+          </div>
+        </div>
+
+        <div class="handset">
+          <span class="side side-l1" aria-hidden="true"></span><span class="side side-l2" aria-hidden="true"></span><span class="side side-r" aria-hidden="true"></span>
         <div class="phone" role="region" aria-label="Familiengruppe (Demo)" data-i18n-attr="aria-label:chat.label">
           <div class="chat-head">
             <span class="chat-avatar" aria-hidden="true">
@@ -248,6 +257,7 @@
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12 L20 4 L14 20 L11.5 13 Z" fill="currentColor"/></svg>
             </button>
           </form>
+        </div>
         </div>
       </div>
       <p class="small demo-note" data-i18n-html="demo.note">Eine vereinfachte Nachbildung im Browser. Der echte Rahmen läuft auf einem Raspberry Pi; <a href="https://github.com/jonalus-hub/amonavision-frame">sein Code ist offen auf GitHub</a>.</p>

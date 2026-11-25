@@ -226,6 +226,18 @@
 
   function announce(text) { liveEl.textContent = text; }
 
+  // A message crossing the internet between the phone and the frame, as an orange dot.
+  const netEl = $('#net');
+  function packet(dir) {
+    if (!netEl) return;
+    const p = document.createElement('span');
+    p.className = 'packet ' + dir;
+    p.addEventListener('animationend', () => p.remove());
+    netEl.append(p);
+    setTimeout(() => p.remove(), 2000);   // also when animations are off
+  }
+  const TRIP_MS = 850;                     // what a message takes to cross the line
+
   function describe(s) {
     const who = s.mine ? t('chat.youDative') : s.sender;
     if (s.kind === 'video') return t('live.video', who);
@@ -325,10 +337,13 @@
   }
 
   function frameReply(s, voice) {
-    addMsg({ fromFrame: true, kind: 'voice', voice, replyTo: s.voiceMsgId || s.msgId, time: clock() });
-    announce(t('live.sent'));
+    packet('to-chat');
     markStep(3);
-    markStep(4);
+    setTimeout(() => {
+      addMsg({ fromFrame: true, kind: 'voice', voice, replyTo: s.voiceMsgId || s.msgId, time: clock() });
+      announce(t('live.sent'));
+      markStep(4);
+    }, TRIP_MS);
   }
 
   // Buttons: act on press, like the GPIO callbacks; Reply records while held.
@@ -497,7 +512,10 @@
     return m;
   }
   function botSay(textKey, replyToId) {
-    setTimeout(() => addMsg({ bot: true, kind: 'text', textKey, replyTo: replyToId, time: clock() }), 450);
+    setTimeout(() => {
+      packet('to-chat');
+      setTimeout(() => addMsg({ bot: true, kind: 'text', textKey, replyTo: replyToId, time: clock() }), TRIP_MS);
+    }, 500);
   }
   function setStatus(key) {
     statusEl.textContent = key ? t(key) : '';
@@ -533,9 +551,11 @@
     try { img = await loadImage(src); } catch (e) { setStatus('chat.badFile'); return; }
     setStatus(null);
     const m = addMsg({ mine: true, kind: 'photo', src, time: clock() });
+    packet('to-frame');
     sessions.push({ kind: 'photo', mine: true, surface: compose(img), msgId: m.id });
+    const idx = sessions.length - 1;
+    setTimeout(() => show(idx), TRIP_MS);   // what the family sends shows up on the frame
     botSay('bot.photoSaved', m.id);
-    show(sessions.length - 1);       // what the family sends shows up on the frame
     markStep(1);
     if (!sample) setReply(null);
   }
@@ -559,9 +579,11 @@
     poster.width = 480; poster.height = 270;
     poster.getContext('2d').drawImage(surface, 0, 0, 480, 270);
     const m = addMsg({ mine: true, kind: 'video', src: url, poster: poster.toDataURL('image/jpeg', 0.8), time: clock() });
+    packet('to-frame');
     sessions.push({ kind: 'video', mine: true, video: url, surface, msgId: m.id });
+    const idx = sessions.length - 1;
+    setTimeout(() => show(idx), TRIP_MS);
     botSay('bot.videoSaved', m.id);
-    show(sessions.length - 1);
     markStep(1);
     setReply(null);
   }
@@ -569,17 +591,19 @@
   function sendVoice(url) {
     const target = replyTo && messages.find(x => x.id === replyTo);
     const m = addMsg({ mine: true, kind: 'voice', voice: { url }, replyTo: target ? target.id : null, time: clock() });
+    packet('to-frame');
     setReply(null);
     const s = target && sessionOfMsg(target.id);
     if (!s) { botSay('bot.voiceNeedsReply', m.id); return; }
     s.voice = { url };
     s.voiceMsgId = m.id;
     botSay('bot.photoVoiceSaved', m.id);
-    show(sessions.indexOf(s));
+    setTimeout(() => show(sessions.indexOf(s)), TRIP_MS);
   }
 
   function sendText(text) {
     const m = addMsg({ mine: true, kind: 'text', text, replyTo, time: clock() });
+    packet('to-frame');
     setReply(null);
     if (text.startsWith('/')) {
       const cmd = text.slice(1).split(/[\s@]/)[0].toLowerCase();
