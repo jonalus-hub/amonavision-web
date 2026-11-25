@@ -175,6 +175,10 @@
 
       <div class="demo-grid" id="demo">
         <div class="frame-col">
+          <div class="mic">
+            <label class="switch"><input type="checkbox" id="micToggle"> <span data-i18n="demo.mic">Mein Mikrofon verwenden</span></label>
+            <span class="small" id="micHint" data-i18n="demo.micHint">Sonst spricht eine Beispielstimme. Die Aufnahme bleibt in Ihrem Browser.</span>
+          </div>
           <div class="frame" id="frame" tabindex="0" role="group" aria-label="AmonaVision-Rahmen (Demo)" data-i18n-attr="aria-label:demo.frameLabel">
             <div class="cutout"><canvas id="screen" width="1024" height="600" role="img" aria-label="Bildschirm des Rahmens" data-i18n-attr="aria-label:demo.screenLabel"></canvas></div>
             <button type="button" class="key key-left" data-key="left" aria-label="Zurück" data-i18n-attr="aria-label:key.back;title:key.back" title="Zurück">
@@ -254,10 +258,6 @@
           </li>
         </ol>
 
-        <div class="mic">
-          <label class="switch"><input type="checkbox" id="micToggle"> <span data-i18n="demo.mic">Mein Mikrofon verwenden</span></label>
-          <span class="small" id="micHint" data-i18n="demo.micHint">Sonst spricht eine Beispielstimme. Die Aufnahme bleibt in Ihrem Browser.</span>
-        </div>
         </div>
       </div>
       <p class="small demo-note" data-i18n-html="demo.note">Eine vereinfachte Nachbildung im Browser. Der echte Rahmen läuft auf einem Raspberry Pi; <a href="https://github.com/jonalus-hub/amonavision-frame">sein Code ist offen auf GitHub</a>.</p>
