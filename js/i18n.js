@@ -53,7 +53,6 @@
 
       'demo.title': 'Probieren Sie es aus.',
       'demo.lead': 'Der Rahmen bei Oma und das Handy der Familie, verbunden über das Internet. Alles läuft nur in Ihrem Browser – nichts wird hochgeladen.',
-      'demo.net': 'Internet',
       'demo.netLabel': 'Rahmen und Familie sind über das Internet verbunden',
       'step1': 'Schicken Sie ein Foto in die Familiengruppe.',
       'step1.button': 'Beispielfoto senden',
@@ -200,7 +199,6 @@
 
       'demo.title': 'Try it.',
       'demo.lead': 'The frame at Grandma’s and the family’s phone, connected over the internet. It all runs in your browser – nothing is uploaded.',
-      'demo.net': 'Internet',
       'demo.netLabel': 'The frame and the family are connected over the internet',
       'step1': 'Send a photo to the family group.',
       'step1.button': 'Send a sample photo',

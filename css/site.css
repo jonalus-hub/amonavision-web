@@ -144,7 +144,15 @@ h3 { font-size: 1.25rem; }
 .guide { grid-area: guide; }
 .net { grid-area: net; }
 .handset { grid-area: chat; }
-@media (min-width: 1000px) { .demo-grid { grid-template-columns: minmax(0, 1fr) 96px 352px; column-gap: 12px; grid-template-areas: "frame net chat" "guide guide guide"; } }
+@media (min-width: 1000px) {
+  .demo-grid { grid-template-columns: minmax(0, 1fr) 96px 352px; column-gap: 12px; grid-template-areas: "frame net chat" "guide guide guide"; }
+  /* The frame and the phone share a centre line. The key labels and the keyboard hint hang below
+     the frame, out of the flow, so it is the frame itself that is centred, in the room the taller phone leaves. */
+  .frame-col { align-self: center; position: relative; }
+  .handset { align-self: center; }
+  .frame-col .key-labels { position: absolute; top: calc(100% + 12px); left: 0; margin: 0; }
+  .frame-col .keys-hint { position: absolute; top: calc(100% + 50px); left: 0; right: 0; margin: 0; }
+}
 .frame-col { display: flex; flex-direction: column; align-items: center; }
 .keys-hint { margin: 14px 0 0; text-align: center; }
 @media (hover: none) and (pointer: coarse) { .keys-hint { display: none; } }   /* touch screens have no keyboard */
@@ -233,7 +241,7 @@ label.icon-btn:focus-within { outline: 3px solid var(--accent); outline-offset: 
    wide screens, horizontal above the phone on narrow ones. */
 .net { position: relative; align-self: stretch; display: grid; place-items: center; min-height: 96px; }
 .net::before { content: ""; position: absolute; left: 0; right: 0; top: 50%; border-top: 3px dashed #8f897f; }
-.net-badge { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 8px 10px; background: var(--bg); color: var(--cream); font-weight: 700; font-size: 0.85rem; }
+.net-badge { position: relative; z-index: 1; display: flex; padding: 8px 6px; background: var(--bg); }
 .net-badge svg { width: 48px; height: 32px; }
 .packet { position: absolute; z-index: 2; width: 14px; height: 14px; border-radius: 50%; background: var(--accent);
   box-shadow: 0 0 0 5px rgba(247, 148, 29, 0.28); pointer-events: none; left: 50%; margin-left: -7px; top: -7px; }
