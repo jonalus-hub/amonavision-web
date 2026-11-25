@@ -136,10 +136,10 @@ h3 { font-size: 1.25rem; }
 
 /* Demo: layout */
 /* Frame, steps and chat in one grid: #demo lands here, so the frame is on screen.
-   Phones: frame, steps, chat. Wide screens: frame and chat side by side, steps below. */
+   Phones: frame, internet line, phone, then the steps. Wide screens: frame and phone side by side, steps below. */
 .demo-grid { display: grid; gap: 24px; align-items: start; margin-top: 32px; scroll-margin-top: 80px;
   grid-template-columns: minmax(0, 1fr);   /* never wider than the screen (the handset alone wants 400px) */
-  grid-template-areas: "frame" "guide" "net" "chat"; }
+  grid-template-areas: "frame" "net" "chat" "guide"; }
 .frame-col { grid-area: frame; }
 .guide { grid-area: guide; }
 .net { grid-area: net; }
