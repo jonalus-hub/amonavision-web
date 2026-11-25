@@ -532,6 +532,7 @@
     msgsEl.replaceChildren(...messages.map(msgEl));
     stick = true;
     keepBottom();
+    pcoach();
   }
   function addMsg(m) {
     m.id = msgSeq++;
@@ -539,6 +540,7 @@
     msgsEl.append(msgEl(m));
     stick = true;
     keepBottom();
+    pcoach();
     return m;
   }
   function botSay(textKey, replyToId) {
@@ -556,7 +558,10 @@
     replyTo = id;
     const m = messages.find(x => x.id === id);
     $('#replyBar').hidden = !m;
-    if (m) { $('#replyText').textContent = t('chat.replyTo', nameOf(m), summary(m)); $('#textInput').focus(); }
+    if (m) {
+      $('#replyText').textContent = t('chat.replyTo', nameOf(m), summary(m));   // no focus on the text field: the tutorial points at the mic
+    }
+    pcoach();
   }
   msgsEl.addEventListener('click', e => {
     const r = e.target.closest('[data-reply]');
@@ -581,6 +586,7 @@
     try { img = await loadImage(src); } catch (e) { setStatus('chat.badFile'); return; }
     setStatus(null);
     const m = addMsg({ mine: true, kind: 'photo', src, time: clock() });
+    sentId = m.id; sentKind = 'photo';
     packet('to-frame');
     sessions.push({ kind: 'photo', mine: true, surface: compose(img), msgId: m.id });
     const idx = sessions.length - 1;
@@ -608,6 +614,7 @@
     poster.width = 480; poster.height = 270;
     poster.getContext('2d').drawImage(surface, 0, 0, 480, 270);
     const m = addMsg({ mine: true, kind: 'video', src: url, poster: poster.toDataURL('image/jpeg', 0.8), time: clock() });
+    sentId = m.id; sentKind = 'video';
     packet('to-frame');
     sessions.push({ kind: 'video', mine: true, video: url, surface, msgId: m.id });
     const idx = sessions.length - 1;
@@ -616,15 +623,17 @@
     setReply(null);
   }
 
-  function sendVoice(url) {
+  function sendVoice(voice) {
     const target = replyTo && messages.find(x => x.id === replyTo);
-    const m = addMsg({ mine: true, kind: 'voice', voice: { url }, replyTo: target ? target.id : null, time: clock() });
+    const m = addMsg({ mine: true, kind: 'voice', voice, replyTo: target ? target.id : null, time: clock() });
     packet('to-frame');
     setReply(null);
     const s = target && sessionOfMsg(target.id);
     if (!s) { botSay('bot.voiceNeedsReply', m.id); return; }
-    s.voice = { url };
+    s.voice = voice;
     s.voiceMsgId = m.id;
+    if (target.id === sentId) { voicePaired = true; pcoachDoneUntil = now() + 6000; setTimeout(pcoach, 6100); }
+    pcoach();
     botSay('bot.photoVoiceSaved', m.id);
     setTimeout(() => show(sessions.indexOf(s)), TRIP_MS);
   }
@@ -663,24 +672,30 @@
     if (sampleNext >= SAMPLES.length) return;
     sendPhoto(`media/photos/${SAMPLES[sampleNext++]}`, { sample: true });
     if (sampleNext >= SAMPLES.length) $('#quick').hidden = true;
+    pcoach();
   });
 
   // Voice notes from the chat: hold the microphone button.
   const voiceBtn = $('#voiceBtn');
+  // Hold to record. Without the microphone switched on, holding it "records" a sample voice note,
+  // as Grandma's sample reply does on the frame.
   let chatRec = null, chatRecStart = 0, chatChunks = [];
   voiceBtn.addEventListener('pointerdown', e => {
     e.preventDefault();
-    if (!micStream) { setStatus('chat.needMic'); return; }
     try { voiceBtn.setPointerCapture(e.pointerId); } catch (err) { /* fine */ }
-    try {
-      chatRec = new MediaRecorder(micStream);
-      chatChunks = [];
-      chatRec.ondataavailable = ev => { if (ev.data.size) chatChunks.push(ev.data); };
-      chatRec.start();
-      chatRecStart = now();
-      voiceBtn.classList.add('recording');
-      setStatus('chat.recording');
-    } catch (err) { chatRec = null; setStatus('demo.micUnavailable'); }
+    chatRec = { sample: true };
+    if (micStream) {
+      try {
+        chatRec = new MediaRecorder(micStream);
+        chatChunks = [];
+        chatRec.ondataavailable = ev => { if (ev.data.size) chatChunks.push(ev.data); };
+        chatRec.start();
+      } catch (err) { chatRec = { sample: true }; }
+    }
+    chatRecStart = now();
+    voiceBtn.classList.add('recording');
+    setStatus('chat.recording');
+    pcoach();
   });
   const voiceUp = () => {
     const r = chatRec;
@@ -688,11 +703,13 @@
     voiceBtn.classList.remove('recording');
     if (!r) return;
     const secs = (now() - chatRecStart) / 1000;
-    r.onstop = () => {
-      if (secs < MIN_REC_S) { setStatus('chat.tooShort'); return; }
+    const done = voice => {
+      if (secs < MIN_REC_S) { setStatus('chat.tooShort'); pcoach(); return; }
       setStatus(null);
-      sendVoice(URL.createObjectURL(new Blob(chatChunks, { type: r.mimeType })));
+      sendVoice(voice);
     };
+    if (r.sample) { done({ key: SAMPLE_VOICE }); return; }
+    r.onstop = () => done({ url: URL.createObjectURL(new Blob(chatChunks, { type: r.mimeType })) });
     r.stop();
   };
   voiceBtn.addEventListener('pointerup', voiceUp);
@@ -721,6 +738,47 @@
       setMicHint('demo.micDenied');
     }
   });
+
+  // ------------------------------------------------------------------ tutorial on the phone
+  // Send a photo or video; for a photo, reply to it with a voice note. The control to use pulses
+  // and a bubble says what to do; it ends with a short "done" and goes away.
+  const pcoachEl = $('#pcoach');
+  const pcoachBubble = pcoachEl && pcoachEl.querySelector('.coach-bubble');
+  const pcoachText = $('#pcoachText');
+  const SAMPLE_VOICE = '09-baby-daisy';   // the family's sample voice note, made for the sample photo
+  let sentId = null, sentKind = null, voicePaired = false, pcoachDoneUntil = 0;
+  function pcoach() {
+    if (!pcoachEl) return;
+    let target = null, key = null;
+    const quick = $('#quick');
+    if (chatRec) { target = voiceBtn; key = 'pcoach.release'; }
+    else if (now() < pcoachDoneUntil) { key = 'pcoach.done'; }
+    else if (!sentId) { target = quick.hidden ? $('label.icon-btn') : $('#sampleBtn'); key = 'pcoach.send'; }
+    else if (sentKind === 'photo' && !voicePaired) {
+      if (replyTo === sentId) { target = voiceBtn; key = 'pcoach.hold'; }
+      else { target = msgsEl.querySelector(`#m${sentId} .reply-btn`); key = 'pcoach.reply'; }
+    }
+    document.querySelectorAll('.phone .attn-ring').forEach(el => { if (el !== target) el.classList.remove('attn-ring'); });
+    if (target) target.classList.add('attn-ring');
+    pcoachEl.hidden = !key;
+    if (!key) return;
+    pcoachText.textContent = t(key);
+    // Point the bubble's tip at the control: up into the chat, or down to the bar below.
+    const box = pcoachEl.getBoundingClientRect(), bw = pcoachBubble.offsetWidth;
+    let tip = box.width / 2, up = false;
+    if (target) {
+      const r = target.getBoundingClientRect();
+      tip = r.left + r.width / 2 - box.left;
+      up = r.bottom <= box.top + 2;
+      if (up) target.scrollIntoView({ block: 'nearest' });
+    }
+    const left = Math.max(0, Math.min(tip - bw / 2, box.width - bw));
+    pcoachBubble.style.marginLeft = `${left}px`;
+    pcoachBubble.style.setProperty('--tip-x', `${Math.max(14, Math.min(tip - left, bw - 14))}px`);
+    pcoachBubble.classList.toggle('tip-down', !up);
+    pcoachBubble.classList.toggle('no-tip', !target);
+  }
+  window.addEventListener('resize', pcoach);
 
   // ------------------------------------------------------------------ language
   AV.onLang(() => {
