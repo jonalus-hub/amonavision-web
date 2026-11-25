@@ -29,6 +29,7 @@
   const MIN_REC_S = 1;                // shorter recordings are discarded, as on the frame
   const MAX_FILE = 200 * 1024 * 1024; // keep a huge local file from eating the tab's memory
   const FONT = '"Plus Jakarta Sans", Helvetica, Arial, sans-serif';
+  const CREAM = '#faf7f2', DARK = '#121212';   // the illustrations' palette, with the orange accent
 
   const frameEl = $('#frame');
   const msgsEl = $('#msgs');
@@ -132,10 +133,10 @@
     ctx.font = `700 30px ${FONT}`;
     const w = ctx.measureText(text).width + 36, h = 54;
     const x = Math.max(4, Math.min(cx - w / 2, W - w - 4)), y = Math.max(4, Math.min(cy - h / 2, H - h - 4));
-    ctx.fillStyle = 'rgba(0, 0, 0, 0.59)';
+    ctx.fillStyle = 'rgba(18, 18, 18, 0.88)';
     roundRect(ctx, x, y, w, h, h / 2);
     ctx.fill();
-    ctx.fillStyle = '#fff';
+    ctx.fillStyle = CREAM;
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
     ctx.fillText(text, x + w / 2, y + h / 2 + 1);
@@ -145,8 +146,8 @@
     const u = sz / 64;
     ctx.save();
     ctx.translate(cx, cy);
-    ctx.fillStyle = '#fff';
-    ctx.strokeStyle = '#fff';
+    ctx.fillStyle = CREAM;
+    ctx.strokeStyle = CREAM;
     ctx.lineCap = 'round';
     ctx.lineJoin = 'round';
     ctx.beginPath();
@@ -166,7 +167,7 @@
   }
 
   function disc(cx, cy, r, alpha) {
-    ctx.fillStyle = `rgba(0, 0, 0, ${alpha})`;
+    ctx.fillStyle = `rgba(18, 18, 18, ${alpha})`;
     ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI * 2); ctx.fill();
   }
 
@@ -175,11 +176,11 @@
     const pulse = Math.abs(Math.sin(ms / 1000 * 2.5));
     const r = 55 + pulse * 20;
     disc(W / 2, H / 2, r + 30, 0.31);
-    ctx.fillStyle = `rgba(232, 40, 40, ${(160 + pulse * 95) / 255})`;
+    ctx.fillStyle = `rgba(247, 148, 29, ${(170 + pulse * 85) / 255})`;
     ctx.beginPath(); ctx.arc(W / 2, H / 2, r, 0, Math.PI * 2); ctx.fill();
     const s = Math.floor(elapsed);
-    ctx.font = `700 ${Math.round(r * 0.62)}px ${FONT}`;
-    ctx.fillStyle = '#fff';
+    ctx.font = `800 ${Math.round(r * 0.62)}px ${FONT}`;
+    ctx.fillStyle = DARK;
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
     ctx.fillText(`${String(Math.floor(s / 60)).padStart(2, '0')}:${String(s % 60).padStart(2, '0')}`, W / 2, H / 2 + 2);
@@ -189,12 +190,12 @@
 
   function draw() {
     const ms = now();
-    ctx.fillStyle = '#000';
+    ctx.fillStyle = '#1f1f1f';
     ctx.fillRect(0, 0, W, H);
     const s = sessions[cur];
     if (!s) {
       ctx.font = `600 34px ${FONT}`;
-      ctx.fillStyle = '#969696';
+      ctx.fillStyle = '#a19b92';
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
       ctx.fillText(t('frame.waiting'), W / 2, H / 2);
@@ -208,13 +209,13 @@
       ctx.drawImage(s.surface, 0, 0);
     }
     if (state === 'WAITING') {
-      if (ms < badgeUntil) { disc(W / 2, H / 2, 52, 0.7); speaker(W / 2, H / 2, 80, true); }
+      if (ms < badgeUntil) { disc(W / 2, H / 2, 52, 0.88); speaker(W / 2, H / 2, 80, true); }
       if (hasMedia(s)) {
         if (!currentPlayed) pill(t('frame.play'), W / 2 - BTN_OFFSET, HINT_Y);
         else pill(t('frame.reply'), W / 2 + BTN_OFFSET, HINT_Y);
       }
     } else if (state === 'PLAYING' && s.kind === 'photo') {
-      disc(W / 2, H - 52, 42, 0.55);
+      disc(W / 2, H - 52, 42, 0.88);
       speaker(W / 2, H - 52, 64, false);
     } else if (state === 'RECORDING') {
       recIndicator(ms);

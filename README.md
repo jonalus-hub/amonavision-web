@@ -55,4 +55,3 @@ Then open http://localhost:8000. The microphone needs HTTPS or localhost.
     [Kerstin](https://github.com/rhasspy/dataset-voice-kerstin) voices (CC0 datasets).
 - **Typeface:** [Plus Jakarta Sans](https://github.com/tokotype/PlusJakartaSans),
   SIL Open Font License 1.1 (`assets/fonts/OFL.txt`).
-- **Frame surface:** `assets/frame-wood.jpg` is a photo of a real AmonaVision frame.

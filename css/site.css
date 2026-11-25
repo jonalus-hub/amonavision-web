@@ -141,40 +141,33 @@ h3 { font-size: 1.25rem; }
 .keys-hint { margin: 14px 0 0; text-align: center; }
 .demo-note { margin-top: 24px; }
 
-/* The frame at its real proportions (1300 x 962.8 units, screen cutout 1024 x 600),
-   with the surface taken from a photo of a real frame. */
-.frame { position: relative; width: 100%; aspect-ratio: 1300 / 962.8; container-type: inline-size; border-radius: 7.69% / 10.39%;
-  background: #c87d52 url("../assets/frame-wood.jpg") center / 100% 100% no-repeat;
-  box-shadow: inset 0 0 0 1.5px rgba(52, 24, 8, 0.85), inset 0 0 0.8cqw rgba(70, 30, 8, 0.3),
-              0 0.3cqw 0 #6e3b1e, 0 1.8cqw 3.2cqw rgba(0, 0, 0, 0.6); }
+/* The frame, drawn like the illustrations: flat orange body, dark screen and
+   four black buttons with white icons. Proportions are the real frame's
+   (1300 x 962.8 units, screen 1024 x 600) so the screen isn't distorted. */
+.frame { position: relative; width: 100%; aspect-ratio: 1300 / 962.8; container-type: inline-size;
+  border-radius: 6.4% / 8.6%; background: var(--accent); box-shadow: 0 2.4cqw 4cqw rgba(0, 0, 0, 0.45); }
 .frame:focus-visible { outline-offset: 6px; }
-.cutout { position: absolute; left: 10.615%; top: 16.421%; width: 78.769%; height: 62.318%; border-radius: 2.25% / 3.83%; overflow: hidden; background: #000; }
-.cutout::after { content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
-  box-shadow: inset 0 0 0 1.5px rgba(34, 15, 5, 0.9), inset 0 0.25cqw 0.7cqw rgba(0, 0, 0, 0.5); }
+.cutout { position: absolute; left: 10.615%; top: 16.421%; width: 78.769%; height: 62.318%;
+  border-radius: 3.4% / 5.8%; overflow: hidden; background: #1f1f1f; }
 #screen { width: 100%; height: 100%; }
-.key { position: absolute; top: 91.4%; width: 7.1%; aspect-ratio: 1; padding: 0; border: 0; border-radius: 50%; transform: translate(-50%, -50%);
-  cursor: pointer; touch-action: none; -webkit-tap-highlight-color: transparent; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none;
-  background:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.55' numOctaves='2' seed='4'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 7 -4.6'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23n)' opacity='.32'/%3E%3C/svg%3E") center / 100% 100%,
-    radial-gradient(circle at 38% 30%, #3a3a3a 0%, #1f1f1f 45%, #111 80%, #080808 100%);
-  box-shadow: 0 0.3cqw 0 #060606, 0 0.5cqw 0.9cqw rgba(0, 0, 0, 0.55), inset 0 0.12cqw 0.15cqw rgba(255, 255, 255, 0.15), inset 0 -0.15cqw 0.25cqw rgba(0, 0, 0, 0.65);
-  transition: transform 0.05s, box-shadow 0.05s, filter 0.05s; }
-.key::after { content: ""; position: absolute; inset: -38%; border-radius: 50%; }
+.key { position: absolute; top: 90.2%; width: 8%; aspect-ratio: 1; padding: 0; border: 0; border-radius: 50%; transform: translate(-50%, -50%);
+  background: #121212; color: var(--cream); cursor: pointer; touch-action: none; -webkit-tap-highlight-color: transparent;
+  user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; transition: transform 0.06s, background-color 0.06s; }
+.key::after { content: ""; position: absolute; inset: -30%; border-radius: 50%; }
+.key:hover { background: #000; }
 .key svg { width: 100%; height: 100%; overflow: visible; }
-.key .relief { fill: none; stroke: #2b2b2b; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
-.key .relief.thin { stroke-width: 5; }
-.key .dot { fill: #242424; }
-.key.pressed { transform: translate(-50%, -50%) translateY(0.22cqw); filter: brightness(0.8);
-  box-shadow: 0 0.08cqw 0 #060606, 0 0.2cqw 0.4cqw rgba(0, 0, 0, 0.55), inset 0 0.1cqw 0.15cqw rgba(255, 255, 255, 0.1), inset 0 -0.1cqw 0.2cqw rgba(0, 0, 0, 0.65); }
+.key .icon { fill: none; stroke: currentColor; stroke-width: 10; stroke-linecap: round; stroke-linejoin: round; }
+.key .icon.solid { fill: currentColor; }
+.key.pressed { transform: translate(-50%, -50%) scale(0.9); background: #2f2f2f; }
 .key-left { left: 29.70%; }
 .key-play { left: 43.90%; }
 .key-rec { left: 58.08%; }
 .key-right { left: 72.31%; }
-.key-labels { position: relative; width: 100%; height: 1.6em; margin-top: 10px; font-size: clamp(0.72rem, 1.4vw, 0.9rem); font-weight: 700; color: var(--muted); }
+.key-labels { position: relative; width: 100%; height: 1.6em; margin-top: 12px; font-size: clamp(0.78rem, 1.5vw, 1rem); font-weight: 700; color: var(--cream); }
 .key-labels span { position: absolute; transform: translateX(-50%); white-space: nowrap; }
 .key-labels span:nth-child(1) { left: 29.70%; }
 .key-labels span:nth-child(2) { left: 43.90%; }
-.key-labels span:nth-child(3) { left: 58.08%; color: var(--accent); }
+.key-labels span:nth-child(3) { left: 58.08%; }
 .key-labels span:nth-child(4) { left: 72.31%; }
 
 /* Demo: the family chat, as a phone */
