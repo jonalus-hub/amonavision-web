@@ -168,37 +168,12 @@
   </section>
 
   <!-- Demo -->
-  <section class="section" id="demo">
+  <section class="section" id="probieren">
     <div class="wrap">
       <h2 data-i18n="demo.title">Probieren Sie es aus.</h2>
       <p class="lead narrow" data-i18n="demo.lead">Links der Rahmen, rechts der Familienchat. Alles läuft nur in Ihrem Browser – nichts wird hochgeladen.</p>
 
-      <ol class="steps">
-        <li class="step" data-step="1">
-          <span class="step-num" aria-hidden="true">1</span>
-          <p><span data-i18n="step1">Schicken Sie ein Foto in die Familiengruppe.</span> <span class="step-done" data-i18n="step.done">erledigt</span></p>
-          <button type="button" class="button small" id="sampleBtn" data-i18n="step1.button">Beispielfoto senden</button>
-        </li>
-        <li class="step" data-step="2">
-          <span class="step-num" aria-hidden="true">2</span>
-          <p><span data-i18n="step2">Blättern Sie zu einem Foto mit „Abspielen“ und drücken Sie die Taste „Abspielen“.</span> <span class="step-done" data-i18n="step.done">erledigt</span></p>
-        </li>
-        <li class="step" data-step="3">
-          <span class="step-num" aria-hidden="true">3</span>
-          <p><span data-i18n="step3">Halten Sie „Antworten“ gedrückt und sprechen Sie – so antwortet Oma.</span> <span class="step-done" data-i18n="step.done">erledigt</span></p>
-        </li>
-        <li class="step" data-step="4">
-          <span class="step-num" aria-hidden="true">4</span>
-          <p><span data-i18n="step4">Die Antwort erscheint im Familienchat.</span> <span class="step-done" data-i18n="step.done">erledigt</span></p>
-        </li>
-      </ol>
-
-      <div class="mic">
-        <label class="switch"><input type="checkbox" id="micToggle"> <span data-i18n="demo.mic">Mein Mikrofon verwenden</span></label>
-        <span class="small" id="micHint" data-i18n="demo.micHint">Sonst spricht eine Beispielstimme. Die Aufnahme bleibt in Ihrem Browser.</span>
-      </div>
-
-      <div class="demo-grid">
+      <div class="demo-grid" id="demo">
         <div class="frame-col">
           <div class="frame" id="frame" tabindex="0" role="group" aria-label="AmonaVision-Rahmen (Demo)" data-i18n-attr="aria-label:demo.frameLabel">
             <div class="cutout"><canvas id="screen" width="1024" height="600" role="img" aria-label="Bildschirm des Rahmens" data-i18n-attr="aria-label:demo.screenLabel"></canvas></div>
@@ -216,6 +191,33 @@
           </div>
           <p class="sr-only" id="frameLive" aria-live="polite"></p>
           <p class="small keys-hint" data-i18n="demo.keys">Tastatur: ← → blättern, Leertaste abspielen, R gedrückt halten zum Antworten.</p>
+        </div>
+
+        <div class="guide">
+        <ol class="steps">
+          <li class="step" data-step="1">
+            <span class="step-num" aria-hidden="true">1</span>
+            <p><span data-i18n="step1">Schicken Sie ein Foto in die Familiengruppe.</span> <span class="step-done" data-i18n="step.done">erledigt</span></p>
+            <button type="button" class="button small" id="sampleBtn" data-i18n="step1.button">Beispielfoto senden</button>
+          </li>
+          <li class="step" data-step="2">
+            <span class="step-num" aria-hidden="true">2</span>
+            <p><span data-i18n="step2">Blättern Sie zu einem Foto mit „Abspielen“ und drücken Sie die Taste „Abspielen“.</span> <span class="step-done" data-i18n="step.done">erledigt</span></p>
+          </li>
+          <li class="step" data-step="3">
+            <span class="step-num" aria-hidden="true">3</span>
+            <p><span data-i18n="step3">Halten Sie „Antworten“ gedrückt und sprechen Sie – so antwortet Oma.</span> <span class="step-done" data-i18n="step.done">erledigt</span></p>
+          </li>
+          <li class="step" data-step="4">
+            <span class="step-num" aria-hidden="true">4</span>
+            <p><span data-i18n="step4">Die Antwort erscheint im Familienchat.</span> <span class="step-done" data-i18n="step.done">erledigt</span></p>
+          </li>
+        </ol>
+
+        <div class="mic">
+          <label class="switch"><input type="checkbox" id="micToggle"> <span data-i18n="demo.mic">Mein Mikrofon verwenden</span></label>
+          <span class="small" id="micHint" data-i18n="demo.micHint">Sonst antwortet Oma mit einer Comic-Stimme in Fantasiesprache. Ihre Aufnahme bleibt in Ihrem Browser.</span>
+        </div>
         </div>
 
         <div class="phone" role="region" aria-label="Familiengruppe (Demo)" data-i18n-attr="aria-label:chat.label">
@@ -355,7 +357,7 @@
       <span data-i18n="footer.tagline">Der Familienchat – auch für Oma.</span>
     </div>
     <div class="small">
-      <p data-i18n-html="footer.credits">Demo-Inhalte: gezeichnete Fotos und Video mit den Figuren der Illustrationen, synthetische Stimmen (Kokoro TTS; Piper mit Thorsten- und Kerstin-Stimme, CC0).</p>
+      <p data-i18n-html="footer.credits">Demo-Inhalte: gezeichnete Fotos und Video mit den Figuren der Illustrationen; Comic-Stimmen in einer Fantasiesprache, erzeugt mit Kokoro TTS.</p>
       <p data-i18n="footer.font">Schrift: Plus Jakarta Sans (SIL Open Font License).</p>
       <p data-i18n="footer.privacy">Diese Seite setzt keine Cookies und lädt nichts von anderen Servern.</p>
     </div>

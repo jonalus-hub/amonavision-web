@@ -63,7 +63,8 @@
   let micStream = null;
   let visible = true;
 
-  const voiceUrl = v => v.url || `media/voice/${AV.lang}/${v.key}.mp3`;
+  // The sample voices speak a made-up cartoon language, so one set serves both page languages.
+  const voiceUrl = v => v.url || `media/voice/${v.key}.mp3`;
   const now = () => performance.now();
   const clock = () => new Date().toTimeString().slice(0, 5);
 
@@ -172,11 +173,11 @@
     const pulse = Math.abs(Math.sin(ms / 1000 * 2.5));
     const r = 55 + pulse * 20;
     disc(W / 2, H / 2, r + 30, 0.31);
-    ctx.fillStyle = `rgba(247, 148, 29, ${(170 + pulse * 85) / 255})`;
+    ctx.fillStyle = `rgba(232, 40, 40, ${(160 + pulse * 95) / 255})`;   // red, as on the frame
     ctx.beginPath(); ctx.arc(W / 2, H / 2, r, 0, Math.PI * 2); ctx.fill();
     const s = Math.floor(elapsed);
     ctx.font = `800 ${Math.round(r * 0.62)}px ${FONT}`;
-    ctx.fillStyle = DARK;
+    ctx.fillStyle = '#ffffff';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
     ctx.fillText(`${String(Math.floor(s / 60)).padStart(2, '0')}:${String(s % 60).padStart(2, '0')}`, W / 2, H / 2 + 2);

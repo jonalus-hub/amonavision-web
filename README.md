@@ -22,7 +22,7 @@ pair with a photo by replying to it in the chat.
 
 Everything stays in the visitor's browser. Photos, videos and recordings a visitor
 adds are never uploaded. The microphone is only used when the visitor switches it
-on; otherwise a sample voice plays Grandma's reply.
+on; otherwise Grandma replies in the cartoon voice.
 
 ## Privacy
 
@@ -45,10 +45,8 @@ Then open http://localhost:8000. The microphone needs HTTPS or localhost.
 
 - **Photos and video:** drawn for this page with the characters of the AmonaVision
   illustrations (flat SVG scenes rendered to PNG and to a short video).
-- **Voices** (synthetic, no real person's voice):
-  - English: [Kokoro TTS](https://huggingface.co/hexgrad/Kokoro-82M) (Apache-2.0).
-  - German: [Piper](https://github.com/OHF-Voice/piper1-gpl) with the
-    [Thorsten](https://github.com/thorstenMueller/Thorsten-Voice) and
-    [Kerstin](https://github.com/rhasspy/dataset-voice-kerstin) voices (CC0 datasets).
+- **Voices:** cartoon voices speaking a made-up language (no real words but "Amona"),
+  made with [Kokoro TTS](https://huggingface.co/hexgrad/Kokoro-82M) (Apache-2.0) and
+  pitched up with ffmpeg. One set serves both page languages.
 - **Typeface:** [Plus Jakarta Sans](https://github.com/tokotype/PlusJakartaSans),
   SIL Open Font License 1.1 (`assets/fonts/OFL.txt`).
