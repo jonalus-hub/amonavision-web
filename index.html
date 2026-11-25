@@ -175,10 +175,6 @@
 
       <div class="demo-grid" id="demo">
         <div class="frame-col">
-          <div class="mic">
-            <label class="switch"><input type="checkbox" id="micToggle"> <span data-i18n="demo.mic">Mein Mikrofon verwenden</span></label>
-            <span class="small" id="micHint" data-i18n="demo.micHint">Sonst spricht eine Beispielstimme. Die Aufnahme bleibt in Ihrem Browser.</span>
-          </div>
           <div class="frame" id="frame" tabindex="0" role="group" aria-label="AmonaVision-Rahmen (Demo)" data-i18n-attr="aria-label:demo.frameLabel">
             <div class="cutout"><canvas id="screen" width="1024" height="600" role="img" aria-label="Bildschirm des Rahmens" data-i18n-attr="aria-label:demo.screenLabel"></canvas></div>
             <button type="button" class="key key-left" data-key="left" aria-label="Zurück" data-i18n-attr="aria-label:key.back;title:key.back" title="Zurück">
@@ -194,8 +190,14 @@
             <span data-i18n="btn.back">Zurück</span><span data-i18n="btn.play">Abspielen</span><span data-i18n="btn.reply">Antworten</span><span data-i18n="btn.next">Weiter</span>
             <svg class="key-leads" viewBox="0 0 100 20" preserveAspectRatio="none"><g fill="none" stroke="#a19b92" stroke-width="1.5" vector-effect="non-scaling-stroke"><polyline points="29.70,0 29.70,6 12.5,18" vector-effect="non-scaling-stroke"/><polyline points="43.90,0 43.90,6 37.5,18" vector-effect="non-scaling-stroke"/><polyline points="58.08,0 58.08,6 62.5,18" vector-effect="non-scaling-stroke"/><polyline points="72.31,0 72.31,6 87.5,18" vector-effect="non-scaling-stroke"/></g></svg>
           </div>
+          <div class="coach" id="coach" hidden>
+            <p class="coach-bubble"><span id="coachText"></span></p>
+          </div>
+          <div class="mic">
+            <label class="switch"><input type="checkbox" id="micToggle"> <span data-i18n="demo.mic">Mein Mikrofon verwenden</span></label>
+            <span class="small" id="micHint" data-i18n="demo.micHint">Sonst spricht eine Beispielstimme.</span>
+          </div>
           <p class="sr-only" id="frameLive" aria-live="polite"></p>
-          <p class="small keys-hint" data-i18n="demo.keys">Tastatur: ← → blättern, Leertaste abspielen, R gedrückt halten zum Antworten.</p>
         </div>
 
         <div class="net" id="net" role="img" aria-label="Rahmen und Familie sind über das Internet verbunden" data-i18n-attr="aria-label:demo.netLabel">
@@ -257,6 +259,7 @@
             <p><span data-i18n="step4">Die Antwort erscheint im Familienchat.</span> <span class="step-done" data-i18n="step.done">erledigt</span></p>
           </li>
         </ol>
+        <p class="small keys-hint" data-i18n="demo.keys">Tastatur: ← → blättern, Leertaste abspielen, R gedrückt halten zum Antworten.</p>
 
         </div>
       </div>

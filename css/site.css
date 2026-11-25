@@ -130,8 +130,7 @@ h3 { font-size: 1.25rem; }
 .step.done .step-done { display: inline; }
 .step .button { align-self: flex-start; }
 
-.mic { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 0 16px; margin-bottom: 12px; text-align: center; }
-.mic .small { flex-basis: 100%; }
+.mic { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 0 14px; margin-top: 10px; text-align: center; }
 .switch { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; cursor: pointer; min-height: 44px; }
 .switch input { width: 22px; height: 22px; accent-color: var(--accent); }
 
@@ -146,17 +145,17 @@ h3 { font-size: 1.25rem; }
 .net { grid-area: net; }
 .handset { grid-area: chat; }
 @media (min-width: 1000px) {
-  .demo-grid { grid-template-columns: minmax(0, 1fr) 96px 352px; column-gap: 12px; grid-template-areas: "frame net chat" "guide guide guide"; }
+  .demo-grid { grid-template-columns: minmax(0, 1fr) 96px 352px; column-gap: 12px; row-gap: 80px; grid-template-areas: "frame net chat" "guide guide guide"; }
   /* The frame and the phone share a centre line. The key labels and the keyboard hint hang below
      the frame, out of the flow, so it is the frame itself that is centred, in the room the taller phone leaves. */
   .frame-col { align-self: center; position: relative; }
   .handset { align-self: center; }
   .frame-col .key-labels { position: absolute; top: calc(100% + 12px); left: 0; margin: 0; }
-  .frame-col .keys-hint { position: absolute; top: calc(100% + 50px); left: 0; right: 0; margin: 0; }
-  .frame-col .mic { position: absolute; bottom: calc(100% + 12px); left: 0; right: 0; margin: 0; }   /* the microphone switch sits right above the frame */
+  .frame-col .coach { position: absolute; top: calc(100% + 40px); left: 0; right: 0; margin: 0; }
+  .frame-col .mic { position: absolute; top: calc(100% + 98px); left: 0; right: 0; margin: 0; }   /* the microphone switch, under the guidance bubble */
 }
 .frame-col { display: flex; flex-direction: column; align-items: center; }
-.keys-hint { margin: 14px 0 0; text-align: center; }
+.keys-hint { margin: 0; }
 @media (hover: none) and (pointer: coarse) { .keys-hint { display: none; } }   /* touch screens have no keyboard */
 .demo-note { margin-top: 24px; }
 
@@ -189,6 +188,19 @@ h3 { font-size: 1.25rem; }
 .key-labels span:nth-child(3) { left: 58.08%; }
 .key-labels span:nth-child(4) { left: 72.31%; }
 .key-leads { display: none; }
+/* Guidance: the key to press next pulses, and an orange bubble under the frame points at it. */
+.key.attn::before { content: ""; position: absolute; inset: -7px; border-radius: 50%; border: 3px solid var(--cream); pointer-events: none;
+  animation: key-attn 1.5s ease-out infinite; }
+@keyframes key-attn { 0% { transform: scale(0.9); opacity: 0.95; } 70% { opacity: 0; } 100% { transform: scale(1.45); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .key.attn::before { animation: none; } }
+.key:hover { transform: translate(-50%, -50%) scale(1.06); }
+.key.pressed:hover { transform: translate(-50%, -50%) scale(0.9); }
+.coach { position: relative; width: 100%; margin-top: 10px; }
+.coach[hidden] { display: none; }
+.coach-bubble { position: relative; display: inline-block; max-width: 100%; margin: 9px 0 0; padding: 7px 15px; border-radius: 18px;
+  background: var(--accent); color: var(--bg); font-weight: 800; font-size: 0.92rem; line-height: 1.3; box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35); }
+.coach-bubble::before { content: ""; position: absolute; top: -9px; left: var(--tip-x, 50%); margin-left: -8px;
+  border-left: 8px solid transparent; border-right: 8px solid transparent; border-bottom: 9px solid var(--accent); }
 /* Narrow screens: the buttons sit too close for their names (German ones above all), so the
    names spread across the width with a lead line to their button, as in the illustrations. */
 @media (max-width: 640px) {

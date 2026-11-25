@@ -222,9 +222,38 @@
   let raf = 0;
   const animating = () => state === 'RECORDING' || (state === 'PLAYING' && sessions[cur]?.kind === 'video') || now() < badgeUntil;
   function frameLoop() { raf = 0; draw(); if (animating()) raf = requestAnimationFrame(frameLoop); }
-  function redraw() { if (!raf) raf = requestAnimationFrame(frameLoop); }
+  function redraw() { if (!raf) raf = requestAnimationFrame(frameLoop); coach(); }
 
   function announce(text) { liveEl.textContent = text; }
+
+  // Guidance on the frame: the key to try next pulses, and a bubble under the frame points at it.
+  const coachEl = $('#coach');
+  const coachBubble = coachEl && coachEl.querySelector('.coach-bubble');
+  const coachText = $('#coachText');
+  const KEY_X = { left: 29.70, play: 43.90, rec: 58.08, right: 72.31 };     // the buttons, % of the frame width
+  const LABEL_X_NARROW = { left: 12.5, play: 37.5, rec: 62.5, right: 87.5 }; // their spread-out names on phones
+  let played = false, replied = false, browsed = false;
+  function coach() {
+    if (!coachEl) return;
+    const s = sessions[cur];
+    let target = null, key = null;
+    if (state === 'RECORDING') { target = 'rec'; key = 'coach.release'; }
+    else if (!s) { /* still loading */ }
+    else if (!played) { if (hasMedia(s)) { target = 'play'; key = 'coach.play'; } else { target = 'right'; key = 'coach.findPlay'; } }
+    else if (!replied) { target = 'rec'; key = 'coach.reply'; }
+    else if (!browsed) { target = 'right'; key = 'coach.browse'; }
+    frameEl.querySelectorAll('.key').forEach(el => el.classList.toggle('attn', el.dataset.key === target));
+    coachEl.hidden = !key;
+    if (!key) return;
+    coachText.textContent = t(key);
+    const narrow = matchMedia('(max-width: 640px)').matches;
+    const width = coachEl.clientWidth, bw = coachBubble.offsetWidth;
+    const tip = (narrow ? LABEL_X_NARROW : KEY_X)[target] / 100 * width;
+    const left = Math.max(0, Math.min(tip - bw / 2, width - bw));
+    coachBubble.style.marginLeft = `${left}px`;
+    coachBubble.style.setProperty('--tip-x', `${Math.max(14, Math.min(tip - left, bw - 14))}px`);
+  }
+  window.addEventListener('resize', coach);
 
   // A message crossing the internet between the phone and the frame, as an orange dot.
   const netEl = $('#net');
@@ -270,6 +299,7 @@
     const s = sessions[cur];
     state = 'PLAYING';
     currentPlayed = true;
+    played = true;
     markStep(2);
     announce(t('live.playing'));
     if (s.kind === 'video') {
@@ -338,6 +368,8 @@
 
   function frameReply(s, voice) {
     packet('to-chat');
+    replied = true;
+    coach();
     markStep(3);
     setTimeout(() => {
       addMsg({ fromFrame: true, kind: 'voice', voice, replyTo: s.voiceMsgId || s.msgId, time: clock() });
@@ -357,6 +389,7 @@
       return;
     }
     if (state === 'RECORDING' || state === 'IDLE') return;
+    if ((k === 'left' || k === 'right') && replied) browsed = true;
     if (k === 'left') show(cur - 1);
     else if (k === 'right') show(cur + 1);
     else if (k === 'play') {
