@@ -63,8 +63,8 @@
   let micStream = null;
   let visible = true;
 
-  // The sample voices speak a made-up cartoon language, so one set serves both page languages.
-  const voiceUrl = v => v.url || `media/voice/${v.key}.mp3`;
+  // The sample voice notes are recorded in both page languages.
+  const voiceUrl = v => v.url || `media/voice/${AV.lang}/${v.key}.mp3`;
   const now = () => performance.now();
   const clock = () => new Date().toTimeString().slice(0, 5);
 
