@@ -48,7 +48,7 @@
     { sender: 'Sara', kind: 'photo', file: 'bedtime.png', voice: '07-bedtime-story', time: '19:58' },
     { sender: 'Sara', kind: 'video', file: 'hello', time: '20:05' },
   ];
-  const SAMPLES = ['flower.png'];   // the photo the visitor sends in step 1
+  const SAMPLES = ['flower.png'];   // what the chat's "send a sample photo" button sends
   let sampleNext = 0;
 
   const sessions = [];   // what the frame can show, in arrival order
@@ -300,7 +300,6 @@
     state = 'PLAYING';
     currentPlayed = true;
     played = true;
-    markStep(2);
     announce(t('live.playing'));
     if (s.kind === 'video') {
       videoEl.src = s.video;
@@ -370,11 +369,9 @@
     packet('to-chat');
     replied = true;
     coach();
-    markStep(3);
     setTimeout(() => {
       addMsg({ fromFrame: true, kind: 'voice', voice, replyTo: s.voiceMsgId || s.msgId, time: clock() });
       announce(t('live.sent'));
-      markStep(4);
     }, TRIP_MS);
   }
 
@@ -589,7 +586,6 @@
     const idx = sessions.length - 1;
     setTimeout(() => show(idx), TRIP_MS);   // what the family sends shows up on the frame
     botSay('bot.photoSaved', m.id);
-    markStep(1);
     if (!sample) setReply(null);
   }
 
@@ -617,7 +613,6 @@
     const idx = sessions.length - 1;
     setTimeout(() => show(idx), TRIP_MS);
     botSay('bot.videoSaved', m.id);
-    markStep(1);
     setReply(null);
   }
 
@@ -667,11 +662,7 @@
   sampleBtn.addEventListener('click', () => {
     if (sampleNext >= SAMPLES.length) return;
     sendPhoto(`media/photos/${SAMPLES[sampleNext++]}`, { sample: true });
-    if (sampleNext >= SAMPLES.length) {
-      sampleBtn.disabled = true;
-      sampleBtn.dataset.i18n = 'step1.none';
-      sampleBtn.textContent = t('step1.none');
-    }
+    if (sampleNext >= SAMPLES.length) $('#quick').hidden = true;
   });
 
   // Voice notes from the chat: hold the microphone button.
@@ -730,12 +721,6 @@
       setMicHint('demo.micDenied');
     }
   });
-
-  // ------------------------------------------------------------------ steps
-  function markStep(n) {
-    const li = document.querySelector(`.step[data-step="${n}"]`);
-    if (li) li.classList.add('done');
-  }
 
   // ------------------------------------------------------------------ language
   AV.onLang(() => {

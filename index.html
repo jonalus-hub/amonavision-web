@@ -221,6 +221,7 @@
             <button type="button" id="replyCancel" aria-label="Antwort abbrechen" data-i18n-attr="aria-label:chat.cancel">✕</button>
           </div>
           <p class="chat-status" id="chatStatus" aria-live="polite"></p>
+          <div class="quick" id="quick"><button type="button" class="chip" id="sampleBtn" data-i18n="chat.sample">📷 Beispielfoto senden</button></div>
           <form class="composer" id="composer" autocomplete="off">
             <label class="icon-btn" title="Foto oder Video senden" data-i18n-attr="title:chat.attach">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.5 6.5 L8 15 a2.5 2.5 0 0 0 3.5 3.5 L20 10 a4.5 4.5 0 0 0 -6.4 -6.4 L5 12.2 a6.3 6.3 0 0 0 8.9 8.9 L20 15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -239,30 +240,8 @@
         </div>
         </div>
 
-        <div class="guide">
-        <ol class="steps">
-          <li class="step" data-step="1">
-            <span class="step-num" aria-hidden="true">1</span>
-            <p><span data-i18n="step1">Schicken Sie ein Foto in die Familiengruppe.</span> <span class="step-done" data-i18n="step.done">erledigt</span></p>
-            <button type="button" class="button small" id="sampleBtn" data-i18n="step1.button">Beispielfoto senden</button>
-          </li>
-          <li class="step" data-step="2">
-            <span class="step-num" aria-hidden="true">2</span>
-            <p><span data-i18n="step2">Blättern Sie zu einem Foto mit „Abspielen“ und drücken Sie die Taste „Abspielen“.</span> <span class="step-done" data-i18n="step.done">erledigt</span></p>
-          </li>
-          <li class="step" data-step="3">
-            <span class="step-num" aria-hidden="true">3</span>
-            <p><span data-i18n="step3">Halten Sie „Antworten“ gedrückt und sprechen Sie – so antwortet Oma.</span> <span class="step-done" data-i18n="step.done">erledigt</span></p>
-          </li>
-          <li class="step" data-step="4">
-            <span class="step-num" aria-hidden="true">4</span>
-            <p><span data-i18n="step4">Die Antwort erscheint im Familienchat.</span> <span class="step-done" data-i18n="step.done">erledigt</span></p>
-          </li>
-        </ol>
-        <p class="small keys-hint" data-i18n="demo.keys">Tastatur: ← → blättern, Leertaste abspielen, R gedrückt halten zum Antworten.</p>
-
-        </div>
       </div>
+      <p class="small keys-hint" data-i18n="demo.keys">Tastatur: ← → blättern, Leertaste abspielen, R gedrückt halten zum Antworten.</p>
       <p class="small demo-note" data-i18n-html="demo.note">Eine vereinfachte Nachbildung im Browser. Der echte Rahmen läuft auf einem Raspberry Pi; <a href="https://github.com/jonalus-hub/amonavision-frame">sein Code ist offen auf GitHub</a>.</p>
     </div>
   </section>
@@ -359,6 +338,7 @@
       </ol>
       <p class="narrow" data-i18n="status.telegram">Im Pilot läuft der Familienchat über eine Telegram-Gruppe. Für das Serienprodukt ist eine eigene Familien-App mit Servern in der EU geplant.</p>
       <p class="narrow" data-i18n-html="status.code">Der Code des Prototyps ist offen: <a href="https://github.com/jonalus-hub/amonavision-frame">github.com/jonalus-hub/amonavision-frame</a></p>
+      <p class="contact" data-i18n-html="status.contact">Fragen oder Interesse an der Testserie? <a class="button primary" href="mailto:jonalustizazavala@gmail.com?subject=AmonaVision">Schreiben Sie mir</a></p>
     </div>
   </section>
 </main>
@@ -372,6 +352,7 @@
     <div class="small">
       <p data-i18n-html="footer.credits">Demo-Inhalte: gezeichnete Fotos und Video mit den Figuren der Illustrationen, synthetische Stimmen (Kokoro TTS; Piper mit Thorsten- und Kerstin-Stimme, CC0).</p>
       <p data-i18n="footer.font">Schrift: Plus Jakarta Sans (SIL Open Font License).</p>
+      <p data-i18n-html="footer.contact">Kontakt: <a href="mailto:jonalustizazavala@gmail.com?subject=AmonaVision">jonalustizazavala@gmail.com</a></p>
       <p data-i18n="footer.privacy">Diese Seite setzt keine Cookies und lädt nichts von anderen Servern.</p>
     </div>
   </div>

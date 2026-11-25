@@ -118,34 +118,21 @@ h3 { font-size: 1.25rem; }
 .feature h3 { margin-bottom: 10px; }
 .feature p { color: var(--muted); margin: 0; font-size: 0.98rem; }
 
-/* Demo: steps */
-.steps { list-style: none; margin: 0 0 14px; padding: 0; display: grid; gap: 10px; }
-@media (min-width: 900px) { .steps { grid-template-columns: repeat(4, 1fr); } }
-.step { display: flex; flex-direction: column; gap: 10px; background: var(--panel); border: 2px solid transparent; border-radius: 18px; padding: 14px 16px; font-size: 0.95rem; }
-.step p { margin: 0; color: var(--muted); }
-.step-num { display: inline-grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: var(--panel-2); color: var(--cream); font-weight: 800; }
-.step-done { display: none; color: var(--accent); font-weight: 700; }
-.step.done { border-color: var(--accent); }
-.step.done .step-num { background: var(--accent); color: var(--bg); }
-.step.done .step-done { display: inline; }
-.step .button { align-self: flex-start; }
-
+/* Demo: layout */
 .mic { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 0 14px; margin-top: 10px; text-align: center; }
 .switch { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; cursor: pointer; min-height: 44px; }
 .switch input { width: 22px; height: 22px; accent-color: var(--accent); }
-
-/* Demo: layout */
-/* Frame, steps and chat in one grid: #demo lands here, so the frame is on screen.
-   Phones: frame, internet line, phone, then the steps. Wide screens: frame and phone side by side, steps below. */
+/* Frame, internet line and phone in one grid: #demo lands here, so the frame is on screen.
+   Phones: frame, internet line, phone. Wide screens: side by side. */
 .demo-grid { display: grid; gap: 24px; align-items: start; margin-top: 32px; scroll-margin-top: 80px;
   grid-template-columns: minmax(0, 1fr);   /* never wider than the screen (the handset alone wants 400px) */
-  grid-template-areas: "frame" "net" "chat" "guide"; }
+  grid-template-areas: "frame" "net" "chat"; }
 .frame-col { grid-area: frame; }
-.guide { grid-area: guide; }
 .net { grid-area: net; }
 .handset { grid-area: chat; }
 @media (min-width: 1000px) {
-  .demo-grid { grid-template-columns: minmax(0, 1fr) 96px 352px; column-gap: 12px; row-gap: 80px; grid-template-areas: "frame net chat" "guide guide guide"; }
+  /* padding: room for what hangs under the frame (key names, bubble, microphone) */
+  .demo-grid { grid-template-columns: minmax(0, 1fr) 96px 352px; column-gap: 12px; padding-bottom: 72px; grid-template-areas: "frame net chat"; }
   /* The frame and the phone share a centre line. The key labels and the keyboard hint hang below
      the frame, out of the flow, so it is the frame itself that is centred, in the room the taller phone leaves. */
   .frame-col { align-self: center; position: relative; }
@@ -155,7 +142,7 @@ h3 { font-size: 1.25rem; }
   .frame-col .mic { position: absolute; top: calc(100% + 98px); left: 0; right: 0; margin: 0; }   /* the microphone switch, under the guidance bubble */
 }
 .frame-col { display: flex; flex-direction: column; align-items: center; }
-.keys-hint { margin: 0; }
+.keys-hint { margin: 28px 0 0; }
 @media (hover: none) and (pointer: coarse) { .keys-hint { display: none; } }   /* touch screens have no keyboard */
 .demo-note { margin-top: 24px; }
 
@@ -251,6 +238,10 @@ h3 { font-size: 1.25rem; }
 .reply-bar button { background: none; border: 0; color: var(--muted); cursor: pointer; font-size: 1rem; min-width: 36px; min-height: 36px; }
 .chat-status { margin: 0; padding: 0 14px; min-height: 0; font-size: 0.78rem; color: var(--accent); }
 .chat-status:not(:empty) { padding: 6px 14px 0; }
+.quick { padding: 8px 12px 0; background: #1e1e1e; }
+.quick[hidden] { display: none; }
+.chip { min-height: 36px; padding: 0 14px; border: 1px solid var(--accent); border-radius: 18px; background: none; color: var(--accent); font: 700 0.85rem var(--font); cursor: pointer; }
+.chip:hover { background: rgba(247, 148, 29, 0.12); }
 .composer { display: flex; align-items: center; gap: 6px; padding: 10px 12px 30px; background: #1e1e1e; }
 .composer input[type="text"] { flex: 1; min-width: 0; min-height: 44px; background: #121212; border: 1px solid var(--line); color: var(--cream); border-radius: 22px; padding: 0 16px; font: 1rem var(--font); }
 .icon-btn { display: inline-grid; place-items: center; flex: none; width: 44px; height: 44px; border-radius: 50%; border: 0; background: var(--panel-2); color: var(--cream); cursor: pointer; touch-action: none; user-select: none; -webkit-user-select: none; }
@@ -313,6 +304,7 @@ label.icon-btn:focus-within { outline: 3px solid var(--accent); outline-offset: 
 .remote { margin: 44px auto 0; max-width: 46rem; text-align: center; color: var(--muted); border-top: 2px dashed #555; padding-top: 18px; }
 
 /* Status */
+.contact { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; margin-top: 28px; font-size: 1.15rem; font-weight: 700; }
 .timeline { list-style: none; margin: 32px 0; padding: 0; display: grid; gap: 16px; }
 @media (min-width: 800px) { .timeline { grid-template-columns: repeat(3, 1fr); } }
 .timeline li { background: var(--panel); border-radius: var(--radius); padding: 24px; }
