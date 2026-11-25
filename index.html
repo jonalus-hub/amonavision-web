@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' blob: data:; media-src 'self' blob:; style-src 'self'; script-src 'self'; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#121212">
+<title>AmonaVision – Der Familienchat, auch für Oma</title>
+<meta name="description" content="AmonaVision ist ein digitaler Bilderrahmen für ältere Menschen ohne Smartphone: Fotos, Videos und Sprachnachrichten der Familie ansehen und per Knopfdruck mit der eigenen Stimme antworten.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/site.css">
+<script src="js/i18n.js" defer></script>
+<script src="js/site.js" defer></script>
+<script src="js/demo.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main" data-i18n="skip">Zum Inhalt springen</a>
+
+<header class="top">
+  <div class="wrap top-row">
+    <a class="brand" href="#top" aria-label="AmonaVision">
+      <svg class="logo" viewBox="100 330 1660 1150" aria-hidden="true"><polyline points="163,1406 696,400 1220,1416 1690,408" fill="none" stroke="#FAF7F2" stroke-width="96" stroke-linecap="round" stroke-linejoin="round"/><circle cx="696" cy="1112" r="89" fill="#F7941D"/></svg>
+      <span>AmonaVision</span>
+    </a>
+    <nav aria-label="Hauptnavigation" data-i18n-attr="aria-label:nav.label">
+      <ul class="nav">
+        <li><a href="#idee" data-i18n="nav.idea">Idee</a></li>
+        <li><a href="#demo" data-i18n="nav.demo">Demo</a></li>
+        <li><a href="#ablauf" data-i18n="nav.how">So funktioniert’s</a></li>
+        <li><a href="#stand" data-i18n="nav.status">Stand</a></li>
+      </ul>
+    </nav>
+    <div class="lang" role="group" aria-label="Sprache" data-i18n-attr="aria-label:lang.label">
+      <button type="button" data-lang="de" lang="de" aria-pressed="true">DE</button>
+      <button type="button" data-lang="en" lang="en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <!-- Hero -->
+  <section class="hero" id="top">
+    <div class="wrap hero-grid">
+      <div class="hero-text">
+        <p class="eyebrow" data-i18n="hero.eyebrow">Ein Bilderrahmen für Menschen ohne Smartphone</p>
+        <h1><span data-i18n="hero.title1">Der Familienchat –</span><br><span class="accent" data-i18n="hero.title2">auch für Oma.</span></h1>
+        <p class="lead" data-i18n="hero.lead">Ältere Menschen ohne Smartphone bleiben außen vor, wenn die Familie über Fotos, Videos und Sprachnachrichten spricht. AmonaVision holt sie zurück.</p>
+        <div class="cta">
+          <a class="button primary" href="#demo" data-i18n="hero.ctaDemo">Demo ausprobieren</a>
+          <a class="button ghost" href="#ablauf" data-i18n="hero.ctaHow">So funktioniert’s</a>
+        </div>
+        <p class="small" data-i18n="hero.amona">„Amona“ ist Baskisch und heißt Oma.</p>
+      </div>
+      <div class="hero-art">
+        <div class="blob blob-big" aria-hidden="true"></div>
+        <div class="blob blob-small" aria-hidden="true"></div>
+        <svg class="hero-frame" viewBox="20 10 510 368" role="img" aria-label="AmonaVision-Rahmen mit einem Kinderfoto auf dem Bildschirm und vier Tasten" data-i18n-attr="aria-label:hero.figure">
+          <rect x="38" y="25" width="472" height="335" rx="32" fill="#F7941D"/>
+          <rect x="92" y="68" width="364" height="222" rx="8" fill="#222222"/>
+          <circle cx="147" cy="104" r="6" fill="#F7941D"/><circle cx="411" cy="118" r="5" fill="#bbbbbb"/><circle cx="156" cy="232" r="4" fill="#bbbbbb"/><circle cx="397" cy="241" r="7" fill="#F7941D" opacity="0.85"/>
+          <circle cx="274" cy="180" r="102" fill="#2d2d2d"/>
+          <path d="M222 290 Q222 205 274 205 Q326 205 326 290Z" fill="#F7941D"/>
+          <path d="M235 225 L200 188" stroke="#F7941D" stroke-width="16" stroke-linecap="round"/>
+          <path d="M313 225 L348 188" stroke="#F7941D" stroke-width="16" stroke-linecap="round"/>
+          <circle cx="197" cy="186" r="11" fill="#F5C9A0"/><circle cx="351" cy="186" r="11" fill="#F5C9A0"/>
+          <circle cx="274" cy="150" r="45" fill="#F5C9A0"/>
+          <path d="M268 106 Q262 90 276 88 Q292 88 286 102" fill="none" stroke="#F7941D" stroke-width="4" stroke-linecap="round"/>
+          <circle cx="259" cy="155" r="4.5" fill="#141414"/><circle cx="289" cy="155" r="4.5" fill="#141414"/>
+          <circle cx="250" cy="170" r="7" fill="#F7A05A" opacity="0.9"/><circle cx="298" cy="170" r="7" fill="#F7A05A" opacity="0.9"/>
+          <path d="M262 172 Q274 184 286 172" fill="none" stroke="#141414" stroke-width="3" stroke-linecap="round"/>
+          <g fill="#141414"><circle cx="176" cy="326" r="19"/><circle cx="242" cy="326" r="19"/><circle cx="308" cy="326" r="19"/><circle cx="374" cy="326" r="19"/></g>
+          <path d="M180 317 L171 326 L180 335" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M237 316 L250 326 L237 336 Z" fill="#fff"/>
+          <circle cx="308" cy="326" r="7.5" fill="none" stroke="#F7941D" stroke-width="3.5"/>
+          <path d="M370 317 L379 326 L370 335" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem -->
+  <section class="section" id="idee">
+    <div class="wrap">
+      <h2 data-i18n="idea.title">Die Familie redet im Gruppenchat. Oma ist nicht dabei.</h2>
+      <p class="lead narrow" data-i18n="idea.lead">Familien sprechen heute in Gruppenchats – mit Fotos, Sprachnachrichten und Videos statt Anrufen und Briefen. Wer kein Smartphone hat, bekommt davon nichts mit.</p>
+      <div class="stats">
+        <div class="stat">
+          <p class="stat-num" data-i18n="stat1.num">74 %</p>
+          <p class="stat-text" data-i18n="stat1.text">der Menschen über 75 nutzen kein Smartphone</p>
+          <p class="stat-src" data-i18n="stat1.src">Bitkom, 2021</p>
+        </div>
+        <div class="stat">
+          <p class="stat-num" data-i18n="stat2.num">6,1 Mio.</p>
+          <p class="stat-text" data-i18n="stat2.text">Menschen in Deutschland sind 80 Jahre oder älter</p>
+          <p class="stat-src" data-i18n="stat2.src">Destatis, 2024</p>
+        </div>
+      </div>
+      <p class="goal" data-i18n="idea.goal">Das Ziel ist kein weiterer Bilderrahmen, sondern Teilhabe: Oma soll wieder Teil des Familienchats sein und mit ihrer eigenen Stimme mitreden.</p>
+    </div>
+  </section>
+
+  <!-- Solution -->
+  <section class="section alt" id="loesung">
+    <div class="wrap sol-grid">
+      <div>
+        <h2><span data-i18n="sol.title1">Vier Tasten.</span> <span class="accent" data-i18n="sol.title2">Kein Smartphone.</span></h2>
+        <p class="lead" data-i18n-html="sol.lead">Die Familie schickt Fotos, Videos und Sprachnachrichten in eine gemeinsame Gruppe. Der Rahmen zeigt sie sofort. <b>Ein Druck auf „Antworten“, und Omas Stimme landet im Familienchat.</b></p>
+      </div>
+      <svg class="sol-frame" viewBox="0 0 1000 810" role="img" aria-label="AmonaVision-Rahmen mit vier Tasten: Zurück, Abspielen, Antworten, Weiter" data-i18n-attr="aria-label:sol.figure">
+        <rect x="0" y="0" width="1000" height="715" rx="64" fill="#F7941D"/>
+        <rect x="115" y="93" width="770" height="472" rx="34" fill="#1F1F1F"/>
+        <circle cx="500" cy="330" r="215" fill="#2A2A2A"/>
+        <circle cx="230" cy="170" r="14" fill="#F7941D"/><circle cx="790" cy="200" r="10" fill="#FAF7F2" opacity="0.7"/><circle cx="760" cy="460" r="16" fill="#F7941D" opacity="0.8"/><circle cx="250" cy="440" r="9" fill="#FAF7F2" opacity="0.7"/>
+        <path d="M390 565 Q390 385 500 380 Q610 385 610 565 Z" fill="#F7941D"/>
+        <line x1="415" y1="440" x2="345" y2="355" stroke="#F7941D" stroke-width="34" stroke-linecap="round"/><circle cx="338" cy="345" r="24" fill="#F5C7A1"/>
+        <line x1="585" y1="440" x2="655" y2="355" stroke="#F7941D" stroke-width="34" stroke-linecap="round"/><circle cx="662" cy="345" r="24" fill="#F5C7A1"/>
+        <circle cx="500" cy="270" r="95" fill="#F5C7A1"/>
+        <path d="M492 178 q-14 -42 24 -40 q28 4 12 32" fill="none" stroke="#F7941D" stroke-width="11" stroke-linecap="round"/>
+        <circle cx="468" cy="280" r="9" fill="#121212"/><circle cx="532" cy="280" r="9" fill="#121212"/>
+        <circle cx="450" cy="312" r="14" fill="#F7941D" opacity="0.55"/><circle cx="550" cy="312" r="14" fill="#F7941D" opacity="0.55"/>
+        <path d="M478 316 q22 22 44 0" fill="none" stroke="#121212" stroke-width="6" stroke-linecap="round"/>
+        <circle cx="290" cy="640" r="40" fill="#121212"/>
+        <polyline points="299,620 279,640 299,660" fill="none" stroke="#FAF7F2" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="430" cy="640" r="40" fill="#121212"/>
+        <polygon points="422,624 446,640 422,656" fill="#FAF7F2" stroke="#FAF7F2" stroke-width="8" stroke-linejoin="round"/>
+        <circle cx="570" cy="640" r="40" fill="#121212"/>
+        <circle cx="570" cy="640" r="16" fill="none" stroke="#F7941D" stroke-width="8"/>
+        <circle cx="710" cy="640" r="40" fill="#121212"/>
+        <polyline points="701,620 721,640 701,660" fill="none" stroke="#FAF7F2" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+        <g fill="none" stroke="#FAF7F2" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.6">
+          <polyline points="290,684 290,700 110,740"/><polyline points="430,684 430,700 370,740"/><polyline points="570,684 570,700 630,740"/><polyline points="710,684 710,700 890,740"/>
+        </g>
+        <g class="svg-label" text-anchor="middle" fill="#FAF7F2">
+          <text x="110" y="790" data-i18n="btn.back">Zurück</text>
+          <text x="370" y="790" data-i18n="btn.play">Abspielen</text>
+          <text x="630" y="790" data-i18n="btn.reply">Antworten</text>
+          <text x="890" y="790" data-i18n="btn.next">Weiter</text>
+        </g>
+      </svg>
+    </div>
+    <div class="wrap">
+      <ul class="features">
+        <li class="feature">
+          <svg class="feature-icon" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="22" fill="#2a2a2a"/><circle cx="24" cy="24" r="9" fill="none" stroke="#F7941D" stroke-width="4"/></svg>
+          <h3 data-i18n="feat1.title">Antworten per Knopfdruck</h3>
+          <p data-i18n="feat1.text">Taste halten, sprechen, loslassen: Die Sprachnachricht geht an die ganze Familie. Reine Empfangsrahmen können das nicht.</p>
+        </li>
+        <li class="feature">
+          <svg class="feature-icon" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="22" fill="#2a2a2a"/><g fill="#FAF7F2"><circle cx="13" cy="24" r="4"/><circle cx="20.3" cy="24" r="4"/><circle cx="27.6" cy="24" r="4"/><circle cx="35" cy="24" r="4"/></g></svg>
+          <h3 data-i18n="feat2.title">Vier große Tasten</h3>
+          <p data-i18n="feat2.text">Feste Funktionen, gut zu fühlen. Kein Touchscreen, keine Menüs, kein Wischen – auch bei nachlassender Sehkraft oder zittrigen Händen.</p>
+        </li>
+        <li class="feature">
+          <svg class="feature-icon" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="22" fill="#2a2a2a"/><path d="M19 15 L33 24 L19 33 Z" fill="#FAF7F2" stroke="#FAF7F2" stroke-width="2" stroke-linejoin="round"/></svg>
+          <h3 data-i18n="feat3.title">Videos auf Knopfdruck</h3>
+          <p data-i18n="feat3.text">Videos werden auf dem Rahmen gespeichert und spielen auch in voller Länge.</p>
+        </li>
+        <li class="feature">
+          <svg class="feature-icon" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="22" fill="#2a2a2a"/><path d="M14 27 a10 10 0 0 1 20 0" fill="none" stroke="#FAF7F2" stroke-width="3" stroke-linecap="round"/><path d="M18.5 30.5 a5.5 5.5 0 0 1 11 0" fill="none" stroke="#FAF7F2" stroke-width="3" stroke-linecap="round"/><circle cx="24" cy="33" r="2.6" fill="#F7941D"/></svg>
+          <h3 data-i18n="feat4.title">Die Familie kümmert sich</h3>
+          <p data-i18n="feat4.text">Einrichtung, Inhalte und Einstellungen erledigt die Familie aus der Ferne. Oma muss nichts tun.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Demo -->
+  <section class="section" id="demo">
+    <div class="wrap">
+      <h2 data-i18n="demo.title">Probieren Sie es aus.</h2>
+      <p class="lead narrow" data-i18n="demo.lead">Links der Rahmen, rechts der Familienchat. Alles läuft nur in Ihrem Browser – nichts wird hochgeladen.</p>
+
+      <ol class="steps">
+        <li class="step" data-step="1">
+          <span class="step-num" aria-hidden="true">1</span>
+          <p><span data-i18n="step1">Schicken Sie ein Foto in die Familiengruppe.</span> <span class="step-done" data-i18n="step.done">erledigt</span></p>
+          <button type="button" class="button small" id="sampleBtn" data-i18n="step1.button">Beispielfoto senden</button>
+        </li>
+        <li class="step" data-step="2">
+          <span class="step-num" aria-hidden="true">2</span>
+          <p><span data-i18n="step2">Blättern Sie zu einem Foto mit „Abspielen“ und drücken Sie die Taste „Abspielen“.</span> <span class="step-done" data-i18n="step.done">erledigt</span></p>
+        </li>
+        <li class="step" data-step="3">
+          <span class="step-num" aria-hidden="true">3</span>
+          <p><span data-i18n="step3">Halten Sie „Antworten“ gedrückt und sprechen Sie – so antwortet Oma.</span> <span class="step-done" data-i18n="step.done">erledigt</span></p>
+        </li>
+        <li class="step" data-step="4">
+          <span class="step-num" aria-hidden="true">4</span>
+          <p><span data-i18n="step4">Die Antwort erscheint im Familienchat.</span> <span class="step-done" data-i18n="step.done">erledigt</span></p>
+        </li>
+      </ol>
+
+      <div class="mic">
+        <label class="switch"><input type="checkbox" id="micToggle"> <span data-i18n="demo.mic">Mein Mikrofon verwenden</span></label>
+        <span class="small" id="micHint" data-i18n="demo.micHint">Sonst spricht eine Beispielstimme. Die Aufnahme bleibt in Ihrem Browser.</span>
+      </div>
+
+      <div class="demo-grid">
+        <div class="frame-col">
+          <div class="frame" id="frame" tabindex="0" role="group" aria-label="AmonaVision-Rahmen (Demo)" data-i18n-attr="aria-label:demo.frameLabel">
+            <div class="cutout"><canvas id="screen" width="1024" height="600" role="img" aria-label="Bildschirm des Rahmens" data-i18n-attr="aria-label:demo.screenLabel"></canvas></div>
+            <button type="button" class="key key-left" data-key="left" aria-label="Zurück" data-i18n-attr="aria-label:key.back;title:key.back" title="Zurück">
+              <svg viewBox="0 0 100 100" aria-hidden="true"><path class="relief" d="M57 31 L39 50 L57 69"/></svg></button>
+            <button type="button" class="key key-play" data-key="play" aria-label="Abspielen" data-i18n-attr="aria-label:key.play;title:key.play" title="Abspielen">
+              <svg viewBox="0 0 100 100" aria-hidden="true"><path class="relief" d="M40 32 L66 50 L40 68 Z"/></svg></button>
+            <button type="button" class="key key-rec" data-key="rec" aria-label="Antworten (gedrückt halten)" data-i18n-attr="aria-label:key.reply;title:key.reply" title="Antworten (gedrückt halten)">
+              <svg viewBox="0 0 100 100" aria-hidden="true"><circle class="relief thin" cx="50" cy="50" r="30"/><circle class="dot" cx="50" cy="50" r="17"/></svg></button>
+            <button type="button" class="key key-right" data-key="right" aria-label="Weiter" data-i18n-attr="aria-label:key.next;title:key.next" title="Weiter">
+              <svg viewBox="0 0 100 100" aria-hidden="true"><path class="relief" d="M43 31 L61 50 L43 69"/></svg></button>
+          </div>
+          <div class="key-labels" aria-hidden="true">
+            <span data-i18n="btn.back">Zurück</span><span data-i18n="btn.play">Abspielen</span><span data-i18n="btn.reply">Antworten</span><span data-i18n="btn.next">Weiter</span>
+          </div>
+          <p class="sr-only" id="frameLive" aria-live="polite"></p>
+          <p class="small keys-hint" data-i18n="demo.keys">Tastatur: ← → blättern, Leertaste abspielen, R gedrückt halten zum Antworten.</p>
+        </div>
+
+        <div class="phone" role="region" aria-label="Familiengruppe (Demo)" data-i18n-attr="aria-label:chat.label">
+          <div class="chat-head">
+            <span class="chat-avatar" aria-hidden="true">
+              <svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="20" fill="#F7941D"/><g fill="#121212"><circle cx="14.5" cy="15" r="4.5"/><circle cx="25.5" cy="15" r="4.5"/><path d="M6.5 29 a8 7.5 0 0 1 16 0 Z"/><path d="M17.5 29 a8 7.5 0 0 1 16 0 Z"/></g></svg>
+            </span>
+            <span><b data-i18n="chat.group">Familie</b><small data-i18n="chat.members">Emma, Leo, Sara, Noah, Dan und Sie</small></span>
+          </div>
+          <div class="msgs" id="msgs"></div>
+          <div class="reply-bar" id="replyBar" hidden>
+            <span id="replyText"></span>
+            <button type="button" id="replyCancel" aria-label="Antwort abbrechen" data-i18n-attr="aria-label:chat.cancel">✕</button>
+          </div>
+          <p class="chat-status" id="chatStatus" aria-live="polite"></p>
+          <form class="composer" id="composer" autocomplete="off">
+            <label class="icon-btn" title="Foto oder Video senden" data-i18n-attr="title:chat.attach">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.5 6.5 L8 15 a2.5 2.5 0 0 0 3.5 3.5 L20 10 a4.5 4.5 0 0 0 -6.4 -6.4 L5 12.2 a6.3 6.3 0 0 0 8.9 8.9 L20 15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span class="sr-only" data-i18n="chat.attach">Foto oder Video senden</span>
+              <input type="file" id="fileInput" accept="image/*,video/*" class="sr-only">
+            </label>
+            <label class="sr-only" for="textInput" data-i18n="chat.placeholder">Nachricht</label>
+            <input type="text" id="textInput" maxlength="500" placeholder="Nachricht" data-i18n-attr="placeholder:chat.placeholder">
+            <button type="button" class="icon-btn" id="voiceBtn" aria-label="Sprachnachricht: gedrückt halten" data-i18n-attr="aria-label:chat.voice;title:chat.voice" title="Sprachnachricht: gedrückt halten">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3" fill="currentColor"/><path d="M5.5 11 a6.5 6.5 0 0 0 13 0 M12 17.5 V21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </button>
+            <button type="submit" class="icon-btn send" aria-label="Senden" data-i18n-attr="aria-label:chat.send">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12 L20 4 L14 20 L11.5 13 Z" fill="currentColor"/></svg>
+            </button>
+          </form>
+        </div>
+      </div>
+      <p class="small demo-note" data-i18n-html="demo.note">Eine vereinfachte Nachbildung im Browser. Der echte Rahmen läuft auf einem Raspberry Pi; <a href="https://github.com/jonalus-hub/amonavision-frame">sein Code ist offen auf GitHub</a>.</p>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="section alt" id="ablauf">
+    <div class="wrap">
+      <h2 data-i18n="how.title">So bleibt Oma Teil des Familienchats</h2>
+      <div class="flow">
+        <figure class="who">
+          <svg viewBox="40 174 240 250" role="img" aria-label="Oma mit Brille" data-i18n-attr="aria-label:how.figOma">
+            <defs><clipPath id="omaClip"><circle cx="160" cy="300" r="120"/></clipPath></defs>
+            <circle cx="160" cy="300" r="120" fill="#2a2a2a"/>
+            <g clip-path="url(#omaClip)"><path d="M85 420 Q85 335 160 335 Q235 335 235 420 Z" fill="#F7941D"/><path d="M138 338 L160 362 L182 338" fill="none" stroke="#fff" stroke-width="5" stroke-linejoin="round"/></g>
+            <g transform="translate(0 18)">
+              <circle cx="160" cy="194" r="20" fill="#d9d9d9"/><circle cx="160" cy="262" r="52" fill="#F5C9A0"/>
+              <path d="M108 258 Q112 206 160 206 Q208 206 212 258 Q196 228 160 226 Q124 228 108 258Z" fill="#d9d9d9"/>
+              <circle cx="141" cy="263" r="13" fill="none" stroke="#141414" stroke-width="3"/><circle cx="179" cy="263" r="13" fill="none" stroke="#141414" stroke-width="3"/>
+              <line x1="154" y1="263" x2="166" y2="263" stroke="#141414" stroke-width="3"/>
+              <circle cx="141" cy="263" r="3.5" fill="#141414"/><circle cx="179" cy="263" r="3.5" fill="#141414"/>
+              <circle cx="128" cy="285" r="7" fill="#F7A05A" opacity="0.8"/><circle cx="192" cy="285" r="7" fill="#F7A05A" opacity="0.8"/>
+              <path d="M148 291 Q160 301 172 291" fill="none" stroke="#141414" stroke-width="3" stroke-linecap="round"/>
+            </g>
+          </svg>
+          <figcaption><b data-i18n="how.oma">Oma</b><span data-i18n="how.omaSub">ohne Smartphone</span></figcaption>
+        </figure>
+
+        <div class="arrows">
+          <p class="arrow to-left"><span data-i18n="how.toOma">Fotos blättern, Sprachnachrichten &amp; Videos abspielen</span></p>
+          <p class="arrow to-right light"><span data-i18n="how.fromOma">Taste halten &amp; sprechen</span></p>
+        </div>
+
+        <figure class="who">
+          <svg viewBox="440 190 300 225" role="img" aria-label="AmonaVision-Rahmen mit Kinderfoto, Sprachnachricht und vier Tasten" data-i18n-attr="aria-label:how.figFrame">
+            <rect x="440" y="190" width="300" height="225" rx="28" fill="#F7941D"/>
+            <rect x="472" y="216" width="236" height="140" rx="10" fill="#242424"/>
+            <defs><clipPath id="photoClip"><rect x="530" y="238" width="120" height="80" rx="6"/></clipPath></defs>
+            <rect x="530" y="238" width="120" height="80" rx="6" fill="#2d2d2d"/>
+            <g clip-path="url(#photoClip)"><g transform="translate(480.4 203.8) scale(0.4)">
+              <path d="M222 290 Q222 205 274 205 Q326 205 326 290Z" fill="#F7941D"/><path d="M235 225 L200 188" stroke="#F7941D" stroke-width="16" stroke-linecap="round"/><path d="M313 225 L348 188" stroke="#F7941D" stroke-width="16" stroke-linecap="round"/>
+              <circle cx="197" cy="186" r="11" fill="#F5C9A0"/><circle cx="351" cy="186" r="11" fill="#F5C9A0"/><circle cx="274" cy="150" r="45" fill="#F5C9A0"/>
+              <path d="M268 106 Q262 90 276 88 Q292 88 286 102" fill="none" stroke="#F7941D" stroke-width="4" stroke-linecap="round"/>
+              <circle cx="259" cy="155" r="4.5" fill="#141414"/><circle cx="289" cy="155" r="4.5" fill="#141414"/>
+              <circle cx="250" cy="170" r="7" fill="#F7A05A" opacity="0.9"/><circle cx="298" cy="170" r="7" fill="#F7A05A" opacity="0.9"/>
+              <path d="M262 172 Q274 184 286 172" fill="none" stroke="#141414" stroke-width="3" stroke-linecap="round"/>
+            </g></g>
+            <g stroke="#F7941D" stroke-width="4" stroke-linecap="round"><line x1="560" y1="336" x2="560" y2="342"/><line x1="570" y1="332" x2="570" y2="346"/><line x1="580" y1="328" x2="580" y2="350"/><line x1="590" y1="333" x2="590" y2="345"/><line x1="600" y1="329" x2="600" y2="349"/><line x1="610" y1="334" x2="610" y2="344"/><line x1="620" y1="336" x2="620" y2="342"/></g>
+            <g fill="#141414"><circle cx="510" cy="385" r="17"/><circle cx="566" cy="385" r="17"/><circle cx="622" cy="385" r="17"/><circle cx="678" cy="385" r="17"/></g>
+            <path d="M514 377 L506 385 L514 393" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M561 376 L573 385 L561 394 Z" fill="#fff"/>
+            <circle cx="622" cy="385" r="7" fill="none" stroke="#F7941D" stroke-width="3.5"/>
+            <path d="M674 377 L682 385 L674 393" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <figcaption><b data-i18n="how.frame">AmonaVision</b><span data-i18n="how.frameSub">4 Tasten, kein Touchscreen</span></figcaption>
+        </figure>
+
+        <div class="arrows">
+          <p class="arrow to-left"><span data-i18n="how.fromFamily">Fotos, Videos, Sprachnachrichten</span></p>
+          <p class="arrow to-right light"><span data-i18n="how.toFamily">Sprachantwort von Oma</span></p>
+        </div>
+
+        <figure class="who">
+          <svg viewBox="900 150 250 290" role="img" aria-label="Familie: Kinder und Enkel mit Smartphones" data-i18n-attr="aria-label:how.figFamily">
+            <rect x="900" y="150" width="250" height="290" rx="24" fill="#2a2a2a"/>
+            <circle cx="975" cy="215" r="26" fill="#F5C9A0"/><path d="M949 210 Q952 185 975 185 Q998 185 1001 210 Q990 196 975 196 Q960 196 949 210Z" fill="#5a3a22"/>
+            <path d="M943 290 Q943 248 975 248 Q1007 248 1007 290Z" fill="#F7941D"/>
+            <circle cx="966" cy="216" r="3" fill="#141414"/><circle cx="984" cy="216" r="3" fill="#141414"/><path d="M968 227 Q975 233 982 227" fill="none" stroke="#141414" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="1075" cy="215" r="26" fill="#E8B48A"/><path d="M1049 214 Q1050 183 1075 183 Q1100 183 1101 214 L1101 232 Q1096 200 1075 198 Q1054 200 1049 232Z" fill="#c9a227"/>
+            <path d="M1043 290 Q1043 248 1075 248 Q1107 248 1107 290Z" fill="#d9d9d9"/>
+            <circle cx="1066" cy="216" r="3" fill="#141414"/><circle cx="1084" cy="216" r="3" fill="#141414"/><path d="M1068 227 Q1075 233 1082 227" fill="none" stroke="#141414" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="1025" cy="320" r="22" fill="#F5C9A0"/><path d="M1025 299 q2 -12 11 -8" fill="none" stroke="#F7941D" stroke-width="4" stroke-linecap="round"/>
+            <path d="M998 392 Q998 352 1025 352 Q1052 352 1052 392Z" fill="#F7941D"/>
+            <circle cx="1017" cy="320" r="3" fill="#141414"/><circle cx="1033" cy="320" r="3" fill="#141414"/><path d="M1019 330 Q1025 335 1031 330" fill="none" stroke="#141414" stroke-width="2.5" stroke-linecap="round"/>
+            <rect x="1004" y="262" width="22" height="38" rx="4" fill="#141414" stroke="#e8e8e8" stroke-width="2"/>
+            <rect x="1110" y="262" width="22" height="38" rx="4" fill="#141414" stroke="#e8e8e8" stroke-width="2"/>
+            <rect x="1056" y="364" width="22" height="38" rx="4" fill="#141414" stroke="#e8e8e8" stroke-width="2"/>
+          </svg>
+          <figcaption><small data-i18n="how.familyPre">Kinder &amp; Enkel</small><b data-i18n="how.family">Familie</b><span data-i18n="how.familySub">gemeinsame Chatgruppe</span></figcaption>
+        </figure>
+      </div>
+      <p class="remote"><span data-i18n="how.remote">Fernverwaltung: Einstellungen und Inhalte, ohne dass Oma etwas tun muss</span></p>
+    </div>
+  </section>
+
+  <!-- Status -->
+  <section class="section" id="stand">
+    <div class="wrap">
+      <h2 data-i18n="status.title">Wie es entstanden ist – und wo es steht</h2>
+      <p class="lead narrow" data-i18n="status.story">Der erste Rahmen entstand für die eigene Großmutter des Gründers, die kein Smartphone nutzt. Sie verwendet ihn seit der Installation jeden Tag.</p>
+      <ol class="timeline">
+        <li><b data-i18n="status.now.label">Heute</b><p data-i18n="status.now">Pilotphase: zwei Rahmen im täglichen Einsatz.</p></li>
+        <li><b data-i18n="status.test.label">2027</b><p data-i18n="status.test">Testserie mit 60 handgefertigten Rahmen. Die wichtigste Frage: Nutzen die Großeltern die Antwort-Taste von sich aus und regelmäßig?</p></li>
+        <li><b data-i18n="status.next.label">Danach</b><p data-i18n="status.next">Ein Serienprodukt, zuerst in Deutschland.</p></li>
+      </ol>
+      <p class="narrow" data-i18n="status.telegram">Im Pilot läuft der Familienchat über eine Telegram-Gruppe. Für das Serienprodukt ist eine eigene Familien-App mit Servern in der EU geplant.</p>
+      <p class="narrow" data-i18n-html="status.code">Der Code des Prototyps ist offen: <a href="https://github.com/jonalus-hub/amonavision-frame">github.com/jonalus-hub/amonavision-frame</a></p>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-grid">
+    <div class="brand">
+      <svg class="logo" viewBox="100 330 1660 1150" aria-hidden="true"><polyline points="163,1406 696,400 1220,1416 1690,408" fill="none" stroke="#FAF7F2" stroke-width="96" stroke-linecap="round" stroke-linejoin="round"/><circle cx="696" cy="1112" r="89" fill="#F7941D"/></svg>
+      <span data-i18n="footer.tagline">Der Familienchat – auch für Oma.</span>
+    </div>
+    <div class="small">
+      <p data-i18n-html="footer.credits">Demo-Inhalte: Fotos von <a href="https://stocksnap.io">StockSnap</a> (CC0), Video von <a href="https://mixkit.co">Mixkit</a> (Mixkit-Lizenz), synthetische Stimmen (Kokoro TTS, Piper mit Thorsten- und Kerstin-Stimme, CC0). Die Personen sind keine Nutzer von AmonaVision.</p>
+      <p data-i18n="footer.font">Schrift: Plus Jakarta Sans (SIL Open Font License).</p>
+      <p data-i18n="footer.privacy">Diese Seite setzt keine Cookies und lädt nichts von anderen Servern.</p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
