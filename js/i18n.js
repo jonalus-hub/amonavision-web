@@ -146,7 +146,7 @@
       'status.next': 'Ein Serienprodukt, zuerst in Deutschland.',
       'status.telegram': 'Im Pilot läuft der Familienchat über eine Telegram-Gruppe. Für das Serienprodukt ist eine eigene Familien-App mit Servern in der EU geplant.',
       'status.code': 'Der Code des Prototyps ist offen: <a href="https://github.com/jonalus-hub/amonavision-frame">github.com/jonalus-hub/amonavision-frame</a>',
-      'status.contact': 'Fragen oder Interesse an der Testserie? <a class="button primary" href="mailto:jonalustizazavala@gmail.com?subject=AmonaVision">Schreiben Sie mir</a>',
+      'status.contact': 'Fragen oder Interesse an der Testserie? <a class="button primary" href="mailto:jonalustizazavala@gmail.com?subject=AmonaVision">Senden Sie mir eine E-Mail</a>',
 
       'footer.tagline': 'Der Familienchat, auch für Oma.',
       'footer.credits': 'Demo-Inhalte: gezeichnete Fotos und Video mit den Figuren der Illustrationen, synthetische Stimmen (Kokoro TTS; Piper mit Thorsten- und Kerstin-Stimme, CC0).',
@@ -297,7 +297,7 @@
       'status.next': 'A series product, starting in Germany.',
       'status.telegram': 'In the pilot, the family chat is a Telegram group. For the series product, a family app of its own with servers in the EU is planned.',
       'status.code': 'The prototype’s code is open: <a href="https://github.com/jonalus-hub/amonavision-frame">github.com/jonalus-hub/amonavision-frame</a>',
-      'status.contact': 'Questions, or interested in the test series? <a class="button primary" href="mailto:jonalustizazavala@gmail.com?subject=AmonaVision">Write to me</a>',
+      'status.contact': 'Questions, or interested in the test series? <a class="button primary" href="mailto:jonalustizazavala@gmail.com?subject=AmonaVision">Send me an email</a>',
 
       'footer.tagline': 'The family chat, for Grandma too.',
       'footer.credits': 'Demo content: drawn photos and video with the characters of the illustrations, synthetic voices (Kokoro TTS; Piper with the Thorsten and Kerstin voices, CC0).',

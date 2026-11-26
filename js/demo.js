@@ -22,7 +22,11 @@
   const ctx = canvas.getContext('2d');
 
   const W = 1024, H = 600;            // the real panel
-  const BTN_OFFSET = 10 * W / 230;    // viewer.py: hints sit 1 cm off centre on a 230 mm wide panel
+  // The hints sit right above their buttons. The buttons' centres are at these shares of the frame's
+  // width (as in site.css), and the screen spans 10.615%..89.384% of it, so in screen pixels:
+  const SCREEN_LEFT = 10.615, SCREEN_WIDTH = 78.769;
+  const keyX = pct => (pct - SCREEN_LEFT) / SCREEN_WIDTH * W;
+  const PLAY_X = keyX(43.90), REC_X = keyX(58.08);
   const HINT_Y = H - 48;              // config.txt [Overlay] bottom_margin_px
   const SLIDE_MS = 10000;             // config.txt [Viewer] slideshow_interval
   const BADGE_MS = 5000;              // the "no voice" badge
@@ -208,8 +212,8 @@
     if (state === 'WAITING') {
       if (ms < badgeUntil) { disc(W / 2, H / 2, 52, 0.88); speaker(W / 2, H / 2, 80, true); }
       if (hasMedia(s)) {
-        if (!currentPlayed) pill(t('frame.play'), W / 2 - BTN_OFFSET, HINT_Y);
-        else pill(t('frame.reply'), W / 2 + BTN_OFFSET, HINT_Y);
+        if (!currentPlayed) pill(t('frame.play'), PLAY_X, HINT_Y);
+        else pill(t('frame.reply'), REC_X, HINT_Y);
       }
     } else if (state === 'PLAYING' && s.kind === 'photo') {
       disc(W / 2, H - 52, 42, 0.88);
