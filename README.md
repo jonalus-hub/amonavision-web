@@ -1,4 +1,4 @@
-# AmonaVision – website
+# AmonaVision website
 
 The website of AmonaVision, a digital photo frame for older people without a
 smartphone: they see the family's photos, videos and voice messages, and reply

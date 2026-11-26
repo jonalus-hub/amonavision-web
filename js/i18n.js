@@ -1,11 +1,11 @@
-/* AmonaVision – texts in German and English.
+/* AmonaVision: texts in German and English.
    Strings marked "html" may hold <b>, <br> and <a>; everything else is plain text. */
 (() => {
   'use strict';
 
   const STR = {
     de: {
-      'meta.title': 'AmonaVision – Der Familienchat, auch für Oma',
+      'meta.title': 'AmonaVision: Der Familienchat, auch für Oma',
       'meta.description': 'AmonaVision ist ein digitaler Bilderrahmen für ältere Menschen ohne Smartphone: Fotos, Videos und Sprachnachrichten der Familie ansehen und per Knopfdruck mit der eigenen Stimme antworten.',
       'skip': 'Zum Inhalt springen',
       'nav.idea': 'Idee',
@@ -16,8 +16,8 @@
       'lang.label': 'Sprache',
 
       'hero.eyebrow': 'Ein Bilderrahmen für Menschen ohne Smartphone',
-      'hero.title1': 'Der Familienchat –',
-      'hero.title2': 'auch für Oma.',
+      'hero.title1': 'Der Familienchat.',
+      'hero.title2': 'Auch für Oma.',
       'hero.lead': 'Ältere Menschen ohne Smartphone bleiben außen vor, wenn die Familie über Fotos, Videos und Sprachnachrichten spricht. AmonaVision holt sie zurück.',
       'hero.ctaDemo': 'Demo ausprobieren',
       'hero.ctaHow': 'So funktioniert’s',
@@ -25,7 +25,7 @@
       'hero.figure': 'AmonaVision-Rahmen mit einem Kinderfoto auf dem Bildschirm und vier Tasten',
 
       'idea.title': 'Die Familie redet im Gruppenchat. Oma ist nicht dabei.',
-      'idea.lead': 'Familien sprechen heute in Gruppenchats – mit Fotos, Sprachnachrichten und Videos statt Anrufen und Briefen. Wer kein Smartphone hat, bekommt davon nichts mit.',
+      'idea.lead': 'Familien sprechen heute in Gruppenchats, mit Fotos, Sprachnachrichten und Videos statt Anrufen und Briefen. Wer kein Smartphone hat, bekommt davon nichts mit.',
       'stat1.num': '74 %',
       'stat1.text': 'der Menschen über 75 nutzen kein Smartphone',
       'stat1.src': 'Bitkom, 2021',
@@ -45,14 +45,14 @@
       'feat1.title': 'Antworten per Knopfdruck',
       'feat1.text': 'Taste halten, sprechen, loslassen: Die Sprachnachricht geht an die ganze Familie. Reine Empfangsrahmen können das nicht.',
       'feat2.title': 'Vier große Tasten',
-      'feat2.text': 'Feste Funktionen, gut zu fühlen. Kein Touchscreen, keine Menüs, kein Wischen – auch bei nachlassender Sehkraft oder zittrigen Händen.',
+      'feat2.text': 'Feste Funktionen, gut zu fühlen. Kein Touchscreen, keine Menüs, kein Wischen. Das klappt auch bei nachlassender Sehkraft oder zittrigen Händen.',
       'feat3.title': 'Videos auf Knopfdruck',
       'feat3.text': 'Videos werden auf dem Rahmen gespeichert und spielen auch in voller Länge.',
       'feat4.title': 'Die Familie kümmert sich',
       'feat4.text': 'Einrichtung, Inhalte und Einstellungen erledigt die Familie aus der Ferne. Oma muss nichts tun.',
 
       'demo.title': 'Probieren Sie es aus.',
-      'demo.lead': 'Der Rahmen bei Oma und das Handy der Familie, verbunden über das Internet. Alles läuft nur in Ihrem Browser – nichts wird hochgeladen.',
+      'demo.lead': 'Der Rahmen bei Oma und das Handy der Familie, verbunden über das Internet. Alles läuft nur in Ihrem Browser, nichts wird hochgeladen.',
       'demo.netLabel': 'Rahmen und Familie sind über das Internet verbunden',
       'demo.mic': 'Mein Mikrofon verwenden',
       'demo.micHint': 'Sonst spricht eine Beispielstimme.',
@@ -70,7 +70,7 @@
       'coach.browse': 'Mit „Zurück“ und „Weiter“ blättern',
       'frame.play': 'Abspielen',
       'frame.reply': 'Antworten',
-      'frame.waiting': 'AmonaVision – wartet auf Erinnerungen …',
+      'frame.waiting': 'AmonaVision wartet auf Erinnerungen …',
       'key.back': 'Zurück',
       'key.play': 'Abspielen',
       'key.reply': 'Antworten (gedrückt halten)',
@@ -81,7 +81,7 @@
       'live.playing': 'Wird abgespielt.',
       'live.recording': 'Aufnahme läuft. Zum Senden loslassen.',
       'live.sent': 'Antwort an die Familie gesendet.',
-      'live.short': 'Zu kurz – nichts gesendet.',
+      'live.short': 'Zu kurz, nichts gesendet.',
       'live.noVoice': 'Zu diesem Foto gibt es keine Sprachnachricht.',
 
       'chat.group': 'Familie',
@@ -115,7 +115,7 @@
       'bot.photoVoiceSaved': '✅ *Foto und Sprachnachricht gespeichert!* 📸🎙️',
       'bot.videoSaved': '🎬 *Video gespeichert!*',
       'bot.unknown': '🤔 Das verstehe ich nicht. Schicken Sie mir *Fotos*, *Videos* oder *Sprachnachrichten*, dann zeigt der Rahmen sie.',
-      'bot.voiceNeedsReply': '🎙️ Antworten Sie mit der Sprachnachricht auf ein Foto – dann spielt der Rahmen beides zusammen ab.',
+      'bot.voiceNeedsReply': '🎙️ Antworten Sie mit der Sprachnachricht auf ein Foto, dann spielt der Rahmen beides zusammen ab.',
       'bot.help': 'ℹ️ *AmonaVision-Hilfe*\n\n📸 *Foto* → wird gespeichert und auf dem Rahmen gezeigt.\n🎬 *Video* → wird zum Abspielen gespeichert.\n🎙️ *Sprachnachricht* → als Antwort auf ein Foto senden, dann gehören beide zusammen.',
       'bot.blocked': '🔒 Dieser Befehl ist in der Demo nicht verfügbar.',
 
@@ -136,7 +136,7 @@
       'how.figFrame': 'AmonaVision-Rahmen mit Kinderfoto, Sprachnachricht und vier Tasten',
       'how.figFamily': 'Familie: Kinder und Enkel mit Smartphones',
 
-      'status.title': 'Wie es entstanden ist – und wo es steht',
+      'status.title': 'Wie es entstanden ist und wo es steht',
       'status.story': 'Der erste Rahmen entstand für die eigene Großmutter des Gründers, die kein Smartphone nutzt. Sie verwendet ihn seit der Installation jeden Tag.',
       'status.now.label': 'Heute',
       'status.now': 'Pilotphase: zwei Rahmen im täglichen Einsatz.',
@@ -148,7 +148,7 @@
       'status.code': 'Der Code des Prototyps ist offen: <a href="https://github.com/jonalus-hub/amonavision-frame">github.com/jonalus-hub/amonavision-frame</a>',
       'status.contact': 'Fragen oder Interesse an der Testserie? <a class="button primary" href="mailto:jonalustizazavala@gmail.com?subject=AmonaVision">Schreiben Sie mir</a>',
 
-      'footer.tagline': 'Der Familienchat – auch für Oma.',
+      'footer.tagline': 'Der Familienchat, auch für Oma.',
       'footer.credits': 'Demo-Inhalte: gezeichnete Fotos und Video mit den Figuren der Illustrationen, synthetische Stimmen (Kokoro TTS; Piper mit Thorsten- und Kerstin-Stimme, CC0).',
       'footer.font': 'Schrift: Plus Jakarta Sans (SIL Open Font License).',
       'footer.contact': 'Kontakt: <a href="mailto:jonalustizazavala@gmail.com?subject=AmonaVision">jonalustizazavala@gmail.com</a>',
@@ -156,7 +156,7 @@
     },
 
     en: {
-      'meta.title': 'AmonaVision – The family chat, for Grandma too',
+      'meta.title': 'AmonaVision: The family chat, for Grandma too',
       'meta.description': 'AmonaVision is a digital photo frame for older people without a smartphone: see the family’s photos, videos and voice messages, and reply with your own voice at the press of a button.',
       'skip': 'Skip to content',
       'nav.idea': 'Idea',
@@ -167,8 +167,8 @@
       'lang.label': 'Language',
 
       'hero.eyebrow': 'A photo frame for people without a smartphone',
-      'hero.title1': 'The family chat –',
-      'hero.title2': 'for Grandma too.',
+      'hero.title1': 'The family chat.',
+      'hero.title2': 'For Grandma too.',
       'hero.lead': 'Older people without a smartphone are left out when the family talks in photos, videos and voice messages. AmonaVision brings them back in.',
       'hero.ctaDemo': 'Try the demo',
       'hero.ctaHow': 'How it works',
@@ -176,7 +176,7 @@
       'hero.figure': 'AmonaVision frame with a child’s photo on the screen and four buttons',
 
       'idea.title': 'The family talks in a group chat. Grandma isn’t in it.',
-      'idea.lead': 'Families today talk in group chats – with photos, voice messages and videos instead of calls and letters. Anyone without a smartphone misses all of it.',
+      'idea.lead': 'Families today talk in group chats, with photos, voice messages and videos instead of calls and letters. Anyone without a smartphone misses all of it.',
       'stat1.num': '74%',
       'stat1.text': 'of people over 75 don’t use a smartphone',
       'stat1.src': 'Bitkom, 2021 (Germany)',
@@ -196,14 +196,14 @@
       'feat1.title': 'Reply at the press of a button',
       'feat1.text': 'Hold the button, speak, let go: the voice message goes to the whole family. Receive-only frames can’t do that.',
       'feat2.title': 'Four large buttons',
-      'feat2.text': 'Fixed functions you can feel. No touchscreen, no menus, no swiping – even with failing eyesight or shaky hands.',
+      'feat2.text': 'Fixed functions you can feel. No touchscreen, no menus, no swiping. It works even with failing eyesight or shaky hands.',
       'feat3.title': 'Videos at the press of a button',
       'feat3.text': 'Videos are stored on the frame itself, so they play in full length.',
       'feat4.title': 'The family looks after it',
       'feat4.text': 'Setup, content and settings are handled by the family, remotely. Grandma doesn’t have to do anything.',
 
       'demo.title': 'Try it.',
-      'demo.lead': 'The frame at Grandma’s and the family’s phone, connected over the internet. It all runs in your browser – nothing is uploaded.',
+      'demo.lead': 'The frame at Grandma’s and the family’s phone, connected over the internet. It all runs in your browser, and nothing is uploaded.',
       'demo.netLabel': 'The frame and the family are connected over the internet',
       'demo.mic': 'Use my microphone',
       'demo.micHint': 'Otherwise a sample voice speaks.',
@@ -221,7 +221,7 @@
       'coach.browse': 'Browse with “Back” and “Next”',
       'frame.play': 'Play',
       'frame.reply': 'Reply',
-      'frame.waiting': 'AmonaVision – waiting for memories …',
+      'frame.waiting': 'AmonaVision is waiting for memories …',
       'key.back': 'Back',
       'key.play': 'Play',
       'key.reply': 'Reply (hold)',
@@ -232,7 +232,7 @@
       'live.playing': 'Playing.',
       'live.recording': 'Recording. Let go to send.',
       'live.sent': 'Reply sent to the family.',
-      'live.short': 'Too short – nothing sent.',
+      'live.short': 'Too short, nothing sent.',
       'live.noVoice': 'This photo has no voice message.',
 
       'chat.group': 'Family',
@@ -266,7 +266,7 @@
       'bot.photoVoiceSaved': '✅ *Photo and voice note saved!* 📸🎙️',
       'bot.videoSaved': '🎬 *Video saved!*',
       'bot.unknown': '🤔 I don’t understand that message. Send me *photos*, *videos* or *voice notes* to show them on the frame.',
-      'bot.voiceNeedsReply': '🎙️ Reply to a photo with your voice note – then the frame plays them together.',
+      'bot.voiceNeedsReply': '🎙️ Reply to a photo with your voice note, and the frame plays them together.',
       'bot.help': 'ℹ️ *AmonaVision help*\n\n📸 *Photo* → saved and shown on the frame.\n🎬 *Video* → saved for playback.\n🎙️ *Voice note* → send it as a reply to a photo to pair them.',
       'bot.blocked': '🔒 That command isn’t available in the demo.',
 
@@ -287,7 +287,7 @@
       'how.figFrame': 'AmonaVision frame with a child’s photo, a voice message and four buttons',
       'how.figFamily': 'Family: children and grandchildren with smartphones',
 
-      'status.title': 'How it started – and where it stands',
+      'status.title': 'How it started and where it stands',
       'status.story': 'The first frame was built for the founder’s own grandmother, who doesn’t use a smartphone. She has used it every day since it was installed.',
       'status.now.label': 'Today',
       'status.now': 'Pilot phase: two frames in daily use.',
@@ -299,7 +299,7 @@
       'status.code': 'The prototype’s code is open: <a href="https://github.com/jonalus-hub/amonavision-frame">github.com/jonalus-hub/amonavision-frame</a>',
       'status.contact': 'Questions, or interested in the test series? <a class="button primary" href="mailto:jonalustizazavala@gmail.com?subject=AmonaVision">Write to me</a>',
 
-      'footer.tagline': 'The family chat – for Grandma too.',
+      'footer.tagline': 'The family chat, for Grandma too.',
       'footer.credits': 'Demo content: drawn photos and video with the characters of the illustrations, synthetic voices (Kokoro TTS; Piper with the Thorsten and Kerstin voices, CC0).',
       'footer.font': 'Typeface: Plus Jakarta Sans (SIL Open Font License).',
       'footer.contact': 'Contact: <a href="mailto:jonalustizazavala@gmail.com?subject=AmonaVision">jonalustizazavala@gmail.com</a>',

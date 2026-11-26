@@ -1,4 +1,4 @@
-/* AmonaVision – page language. Texts come from i18n.js (window.AV). */
+/* AmonaVision: page language. Texts come from i18n.js (window.AV). */
 (() => {
   'use strict';
   const AV = window.AV;

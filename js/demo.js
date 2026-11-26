@@ -1,4 +1,4 @@
-/* AmonaVision – the frame and the family chat, simulated in the browser.
+/* AmonaVision: the frame and the family chat, simulated in the browser.
 
    A simplified recreation of the real frame (viewer.py) and bot: nothing leaves
    the browser. Photos and videos a visitor adds stay as local blob: URLs, and
@@ -483,7 +483,7 @@
     if (m.kind === 'photo') {
       const img = document.createElement('img');
       img.src = m.src;
-      img.alt = `${t('chat.photo')} – ${nameOf(m)}`;
+      img.alt = `${t('chat.photo')}, ${nameOf(m)}`;
       img.loading = 'lazy';
       img.addEventListener('load', keepBottom);
       el.append(img);
@@ -494,14 +494,14 @@
       v.controls = true;
       v.preload = 'none';
       v.playsInline = true;
-      v.setAttribute('aria-label', `${t('chat.video')} – ${nameOf(m)}`);
+      v.setAttribute('aria-label', `${t('chat.video')}, ${nameOf(m)}`);
       el.append(v);
     } else if (m.kind === 'voice') {
       const a = document.createElement('audio');
       a.src = voiceUrl(m.voice);
       a.controls = true;
       a.preload = 'none';
-      a.setAttribute('aria-label', `${t('chat.voiceNote')} – ${nameOf(m)}`);
+      a.setAttribute('aria-label', `${t('chat.voiceNote')}, ${nameOf(m)}`);
       el.append(a);
     } else {
       const d = document.createElement('div');
